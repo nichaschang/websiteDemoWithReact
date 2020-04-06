@@ -1,0 +1,11 @@
+@import "./variables.scss";
+
+.Cart-icon {
+width: 30px;
+height: 30px;
+margin-left: 10px;
+    &:hover{
+        cursor: pointer;
+        color:#8D1101;
+    }
+}

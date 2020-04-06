@@ -1,0 +1,18 @@
+@import "./variables.scss";
+
+.product-sort {
+    list-style-type: none;
+    padding:0;
+    margin: 0;
+    text-align: left;
+    & li{
+        padding:10px 5px;
+        border-bottom: 1px solid #000;
+    }
+    & li:hover{
+        background: rgb(90, 8, 2);
+        color:$white;
+        cursor: pointer;
+    }
+    
+}

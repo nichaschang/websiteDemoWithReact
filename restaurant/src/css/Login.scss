@@ -1,0 +1,154 @@
+@import "./variables.scss";
+
+.login-box{
+    background:#EFE9E7 ;
+    padding: 15px 30px;
+    height:580px;
+    width:100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+.login-title{
+    margin:0 auto;
+    width: 40%;
+    & img{
+        margin-top:15px;
+    }
+}
+.form-login {
+    border-top:3px solid #f00;
+    box-shadow: 6px 6px 6px #ccc;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px 8px;
+    width:30%;
+    & h3{
+        margin: 0 0 15px 0;
+    }
+    & .btn-box {
+        margin-top:25px;
+    }
+}
+.login-input{
+text-align: left;
+width: 100%;
+    & p{
+        margin: 10px 0px;
+    }
+    & input{
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding:8px 8px 8px 30px ;
+    }
+}
+
+.input_mail{
+    position: relative;
+    & .mail-icon{
+        position: absolute;
+        top:0;
+        left: 2%;
+        width: 25px;
+        height: 25px;
+    }
+}
+
+
+.input-psw{
+    position: relative;
+    & .psw-icon{
+        position: absolute;
+        top:3px;
+        left: 3%;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.forget-info {
+    text-align: left;
+    color:#f00;
+    margin:0;
+}
+
+.registered-btn{
+    background: #C8C8C8;
+    color: $white;
+    padding:5px 15px;
+    margin:0px 5px;
+    width: 50%;
+    text-decoration: none;
+    &:hover {
+        background: #aaa;
+    }
+}
+.login-btn {
+    background: #F56C23;
+    color: $white;
+    padding:5px 15px;
+    margin:0px 5px;
+    width: 50%;
+    text-decoration: none;
+    &:hover{
+        background: #d56c23;
+    }
+}
+
+
+@media (max-width: 760px){
+    .login-title{
+        width: 100%;
+    }
+    .form-login{
+        width: 80%;
+        & h3{
+            margin:0;
+        }
+        & .btn-box{
+            width: 100%;
+            margin:20px 0px;
+        }
+    }
+    .input_mail{
+        position: relative;
+        & .mail-icon{
+            position: absolute;
+            top:-3px;
+            left: 2%;
+            width: 30px;
+            height: 30px;
+        }
+
+        & input[type='email']{
+            padding: 8px 15px 8px 50px;
+        }
+    }
+    .input-psw{
+        position: relative;
+        & .psw-icon{
+            position: absolute;
+            top:3px;
+            left: 3%;
+            width: 20px;
+            height: 20px;
+        }
+        & input[type='password']{
+            padding: 8px 15px 8px 50px;
+        }
+    }
+    .forget-info{
+        font-size: $font-xs;
+    }
+    
+    .registered-btn{
+        padding: 5px 0;
+    }
+    
+    .login-btn {
+        padding: 5px 0;
+    }
+}

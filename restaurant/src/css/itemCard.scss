@@ -1,0 +1,72 @@
+@import "./variables.scss";
+
+.item-card{
+box-shadow: 2px 2px 3px #888;
+margin:10px;
+width:30.3333%;
+height: 300px;
+box-sizing: border-box;
+    & img{
+        width: 100%;
+        height: 100%;
+    }
+}
+.item-img{
+    width: 100%;
+    position: relative;
+    .favor-icon{
+    position: absolute;
+    top:5%;
+    left: -3%;
+    stroke:$white;
+    stroke-width:2px;
+    width:20%;
+    height: 15%;
+    }
+}
+
+.active{
+    fill: #fff;
+}
+.product-txt{
+    margin-top:20px;
+    padding:0 15px;
+    & h2{
+        font-weight: bold;
+        margin:10px 0px;
+    }
+    & hr{
+        margin:10px 0px;
+    }
+}
+
+.btn{
+    border:2px solid #FF5E45;
+    color:#FF5E45;
+    border-radius: 3px;
+    width:100%;
+    background: transparent;
+    padding: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .btn-icon{
+        margin:0px 5px;
+    }
+    &:hover{
+        background:#FF5E45 ;
+        color:$white;
+    }
+}
+
+
+@media (max-width: 760px){
+    .item-card{
+        width:48%;
+        height: 100%;
+        margin:1%;
+    }
+    .btn{
+        margin: 10px auto;
+    }
+}

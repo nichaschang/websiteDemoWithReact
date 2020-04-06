@@ -1,0 +1,361 @@
+@import "./variables.scss";
+
+
+.clearfix{
+    zoom:1;
+    height: 5%;
+}
+.clearfix::before{
+    content: "";
+    display: table;
+}
+.clearfix::after{
+    content: "";
+    display: table;
+}
+.features-box{
+    height:580px;
+    width:100%;
+    background:#EFE9E7;
+    & h3{
+        text-align: center;
+    }
+}
+.features-content{
+    display: flex;
+    padding:0 20px;
+    margin:50px 0px;
+}
+.features-content-item{
+display: flex;
+flex-direction: column;
+align-items: center;
+padding:0px 35px;
+width: 30.333%;
+    & img{
+        border-radius: 50%;
+        margin:0 auto;
+    }
+    & h3{
+        margin:15px 0px 0px 0px;
+    }
+}
+
+.chef-info{
+    display: flex;
+    color: $white;
+    height:460px;
+    width:100%;
+    background:#3D1101;
+    & div{
+        padding:50px 30px
+    }
+}
+.customer-msg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height:280px;
+    width:100%;
+    background:#EFE9E7;
+    padding:50px 0px;
+    & h2{
+        margin:0px;
+    }
+    & .customer-msg-content{
+        display: flex;
+        padding: 0px 20px;
+        margin-top:50px;
+    }
+    & .customer-msg-item{
+        display: flex;
+        & h3{
+            margin:0;
+        }
+        & img{
+            display: block;
+            border-radius: 50%;
+            width: 65px;
+            height: 65px;
+            padding:0px 20px;
+        }
+        & div{
+            width:70%;
+            padding:20px 0px;
+        }
+        & p:nth-child(odd){
+            text-align: right;
+        }
+    }
+}
+
+.order-info{
+    width:100%;
+    background:#FAFAFA;
+    
+    & h2{
+        margin:0;
+        text-align: center;
+        margin-top:35px;
+    }
+    & .order-form{
+        display: flex;
+        padding: 25px 15px;
+
+    }
+    & .order-form img{
+        width: 50%;
+        height: 100%;
+        margin:0px 20px;
+    }
+    & .order-form form {
+        display: flex;
+        align-content: stretch;
+        width:50%;
+        flex-direction: column;
+    }
+
+    & .order-form-box{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        font-size: $font-m;
+        & li{
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+        & input {
+            margin:10px 0;
+            border:1px solid #ddd;
+            padding:5px 10px;
+            border-radius: 5px;
+        }
+        & #Yes {
+            display: none;
+        }
+        & #No {
+            display: none;
+        }
+    }
+    
+}
+.btn-box{
+    display: flex;
+    justify-content: flex-end;
+}
+.cancel-btn{
+    background: #C8C8C8;
+    color: $white;
+    padding:5px 15px;
+    margin:0px 5px;
+    text-decoration: none;
+    &:hover {
+        background: #aaa;
+    }
+}
+.send-btn {
+    background: #F56C23;
+    color: $white;
+    padding:5px 15px;
+    margin:0px 5px;
+    text-decoration: none;
+    &:hover{
+        background: #d56c23;
+    }
+}
+.choose-box {
+    & label {
+        margin: 5px 0px;
+    }
+    & div{
+        display: flex;
+            & label {
+                font-size: $font-xs;
+                margin:5px 5px 15px 0px;
+                color:#666;
+                width:30px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                border: 1px solid #ddd;
+                border-radius: 50%;
+            }
+    }
+}
+.about {
+    width:100%;
+    background:#EFE9E7;
+    padding: 15px 25px;
+    box-sizing: border-box;
+    & p{
+        margin:0;
+    }
+    & .clearfix{
+        height: 15px;
+    }
+    & .about-box{
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+        margin:0;
+        width: 100%;
+        padding: 15px 5px;
+        & h3{
+            margin:0;
+        }
+        .about-item h3{
+            margin:10px 0px
+        }
+        & li {
+            width: 30.33%;
+        }
+    }
+    & .about-content-info{
+        list-style-type: none;
+        padding: 0;
+        margin:0;
+        & span {
+            margin:0 8px;
+        }
+        & li{
+            width: 100%;
+        }
+    }
+    & .about-community{
+        display: flex;
+        justify-content: flex-end;
+        & .icon{
+            width:50px;
+            height: 50px;
+        }
+    }
+    .restaurant-name{
+        font-size: $font-xl;
+        text-align: right;
+    }
+}
+
+// RWD
+
+
+@media (max-width: 760px){
+    
+    .features-box{
+        height: 100%;
+        & h3 {
+            margin:35px auto;
+        font-size: $font-xl;
+        }
+    }
+    .features-content{
+        flex-direction: column;
+        padding: 0px 50px;
+        & .features-content-item{
+            margin:10px auto;
+            width: 80vw;
+            padding: 0;
+        }
+        & h3 {
+            font-size: $font-xl;
+        }
+        & p {
+            font-size: $font-x;
+        }
+    }
+    .chef-info{
+        flex-direction: column;
+        height: 100%;
+        & img{
+            width: 60vw;
+            margin:0 auto;
+        }
+        & div{
+            padding: 50px;
+        }
+        & h4 {
+            font-size: $font-x;
+        }
+
+        & p {
+            font-size: $font-x;
+        }
+    }
+
+    .customer-msg{
+        height: 100%;
+        & .customer-msg-content{
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100vw;
+            height: 100%;
+        }
+        & h2 {
+            font-size: $font-xl;
+        }
+        & .customer-msg-item{
+            justify-content: center;
+            padding:0px 15px;
+            & div {
+                width: 100vw;
+            }
+            & h3 {
+                font-size: $font-x;
+            }
+            & p {
+                font-size: $font-x;
+            }
+            & img{
+                height: 70px;
+                width: 90px;
+                margin:0 auto;
+            }
+        }
+    }
+    .order-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        & h2 {
+            margin:20px 0;
+        }
+        & .order-form{
+            width:100vw;
+            flex-direction: column;
+            align-items: center;
+            margin:0px;
+            padding:0;
+            & form {
+                width: 100%;
+                box-sizing: border-box;
+                margin:30px 0px;
+                padding: 0px 25px;
+                justify-content: center;
+            }
+        }
+    }
+    
+
+    .order-form-box {
+        width: 100vw;
+        & li {
+            width: 100vw;
+        }
+        & input {
+            width: 90%;
+            padding:0px;
+        }
+    }
+    
+    .btn-box{
+        margin:0;
+    }
+    .cancel-btn{
+        text-align: center;
+        width: 50%;
+    }
+    .send-btn {
+        text-align: center;
+        width: 50%;
+    }
+}

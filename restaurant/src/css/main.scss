@@ -1,0 +1,10 @@
+@import "./variables.scss";
+
+body {
+    background-color: $background;
+    font-family: "Montserrat", "微軟正黑體", sans-serif;
+  }
+
+  h1{
+      font-size: 2.5rem;
+  }
