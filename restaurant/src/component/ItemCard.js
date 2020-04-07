@@ -1,33 +1,18 @@
-import React ,{useState}from 'react'
+import React ,{useState,useEffect}from 'react'
 // import {order} from '../component/items'
 import '../css/itemCard.scss'
 import {FiHeart} from 'react-icons/fi'
 import {FaShoppingCart} from 'react-icons/fa'
-import { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import {handle_addCart} from '../action/index'
 function ItemCard(props) {
 const [myFavor,setMyFavor]=useState(true)
-    let itemsDOM=[]
-    // useEffect(()=>{
-    //     console.log(myFavor)
-    // },[myFavor])
-    // props.data.map((v,i)=>{
-    //     itemsDOM.push(
-    //         <div className="item-card" key={v.itemName}>
-    //             <div className="item-img">
-    //                 <FiHeart className={`favor-icon ${!myFavor?'active':''}`}  onClick={()=>setMyFavor(!myFavor)} />
-    //                 <img src={v.img} />
-    //             </div>
-    //             <div className="product-txt">
-    //                 <h3>{v.itemName}</h3>
-    //                 <h5>{v.itemEName}</h5>
-    //                 <hr />
-    //                 <h2>${v.price}</h2>
-    //                 <div><button className="btn"><FaShoppingCart className="btn-icon"/>加入購物車</button></div>
-    //             </div>
-                
-    //         </div>
-    //     )
-    // })
+
+
+useEffect(()=>{
+    console.log(props.CartAmount)
+},[props.CartAmount])
 
     return (
         <>
@@ -41,7 +26,9 @@ const [myFavor,setMyFavor]=useState(true)
                     <h5>{props.data.itemEName}</h5>
                     <hr />
                     <h2>${props.data.price}</h2>
-                    <div><button className="btn"><FaShoppingCart className="btn-icon"/>加入購物車</button></div>
+                    <div><button className="btn" onClick={()=>
+                    props.handle_addCart(props.data,props.Cart,true)
+                    }><FaShoppingCart className="btn-icon"/>加入購物車</button></div>
                 </div>
                 
             </div>
@@ -49,4 +36,20 @@ const [myFavor,setMyFavor]=useState(true)
     )
 }
 
-export default ItemCard
+const mapStateToProps = store => {
+    return {
+      //購物車內容
+      Cart: store.cart,
+      CartAmount:store.CartAmount,
+    }
+  }
+
+  const mapDispatchToProps = dispatch => {
+    return bindActionCreators(
+      {
+        handle_addCart,
+      },
+      dispatch
+    )
+  }
+  export default connect(mapStateToProps, mapDispatchToProps)(ItemCard)

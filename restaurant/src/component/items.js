@@ -5,7 +5,7 @@ export const order= [
         itemEName:"Classic Hamburger Package",
         img:"/image/product_1_desktop.png",
         price:120,
-        sort:["只愛吃薯條"],
+        sort:["只愛吃薯條","全部"],
     },
     {
         id:2,
@@ -13,7 +13,7 @@ export const order= [
         itemEName:"Handsome Sausage",
         img:"/image/product_2_desktop.png",
         price:1024,
-        sort:["加熱就可食",],
+        sort:["加熱就可食","全部"],
     },
     {
         id:3,
@@ -21,7 +21,7 @@ export const order= [
         itemEName:"Hamburg Brothers Package",
         img:"/image/product_3_desktop.png",
         price:792,
-        sort:["不敗漢堡系列","只愛吃薯條"],
+        sort:["不敗漢堡系列","只愛吃薯條","全部"],
     },
     {
         id:4,
@@ -29,6 +29,6 @@ export const order= [
         itemEName:"Dragon Ball Package",
         img:"/image/product_4_desktop.png",
         price:999999,
-        sort:["不敗漢堡系列","只愛吃薯條"],
+        sort:["不敗漢堡系列","只愛吃薯條","全部"],
     }
 ]

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
 import {FaUtensils,FaComment,FaShoppingCart,FaSignInAlt} from 'react-icons/fa'
 import '../css/Header.scss'
-
+import CartIcon from './CartIcon'
 function Header() {
 const [open,setOpen]=useState(false)
 
@@ -11,16 +11,16 @@ const [open,setOpen]=useState(false)
     <>
         <div className="header-box">
             <div className="logo">
-                <Link to="/Home">美式餐廳</Link>
+                <Link to="/">美式餐廳</Link>
             </div>
             <div className="menu">
                 <span onClick={()=>setOpen(!open)} className={`${open?"menu-burger-close":"menu-burger"}`}></span>
                 <ul className={` ${open?'header-items-ul':'header-items-none'}`}>
-                    <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Home"><FaUtensils className="header-icon" /> 餐廳特色</Link></li>
-                    <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Home"><FaComment className="header-icon"/> 聯絡我們</Link></li>
+                    <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/"><FaUtensils className="header-icon" /> 餐廳特色</Link></li>
+                    <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/"><FaComment className="header-icon"/> 聯絡我們</Link></li>
                     <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Product"><FaShoppingCart className="header-icon"/> 線上訂餐</Link></li>
                     <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Login"><FaSignInAlt className="header-icon"/> 會員登入</Link></li>
-                    <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Home"><FaShoppingCart style={{margin:"0px 10px",width:"25px",height:"25px"}}/></Link></li>
+                    <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Order"><CartIcon /></Link></li>
                 </ul>
             </div>
         </div>

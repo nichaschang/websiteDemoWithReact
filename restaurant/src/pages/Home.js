@@ -107,8 +107,8 @@ const [color,setColor]=useState('')
                             </li>
                         </ul>
                         <div className="btn-box">
-                            <Link to="/Home" className="cancel-btn">取消</Link>
-                            <Link to="/Home" className="send-btn">送出</Link>
+                            <Link to="/" className="cancel-btn">取消</Link>
+                            <Link to="/" className="send-btn">送出</Link>
                         </div>
                         
                     </form>

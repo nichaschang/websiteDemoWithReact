@@ -5,6 +5,7 @@
     display: flex;
     background:#EFE9E7 ;
     padding: 15px 30px;
+    min-height: 707px;
     width:100%;
     box-sizing: border-box;
     text-align: center;
@@ -42,8 +43,11 @@ padding: 15px 0;
         align-items: center;
         font-weight: bold;
     }
+    & .goCheck{
+        text-decoration:none;
+        color:#000;
+    }
     & span{
-        font-weight: bold;
         margin: 0 10px;
     }
     & span:hover {
@@ -54,7 +58,7 @@ padding: 15px 0;
 
 .items-box{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 
@@ -81,7 +85,7 @@ padding: 15px 0;
     .items-box{
         display: flex;
         width:100%;
-        justify-content:center;
+        justify-content:flex-start;
         flex-wrap: wrap;
     }
 }

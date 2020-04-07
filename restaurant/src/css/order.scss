@@ -1,0 +1,63 @@
+@import "./variables.scss";
+
+.order-box {
+    background:#EFE9E7;
+    min-height: 500px;
+}
+
+.order-process{
+    padding:35px 0px;
+    text-align: center;
+}
+
+.order-content{
+    margin: 0px auto;
+    border-collapse:collapse;
+    width:80%;
+    box-shadow: 3px 3px 4px rgba(0,0,0,0.2);
+    background: rgba(255,255,255,0.3);
+}
+
+.list-title{
+    border-bottom: 3px solid #FF5E45;
+    border-top: 3px solid #FF5E45;
+    & th{
+        padding:8px;
+    }
+    .pName{
+        width:60%;
+    }
+}
+.list-item{
+    border-bottom: 1px solid #E2E2E2;
+    & td{
+        padding: 8px;
+    }
+    & td:nth-child(n+2){
+        text-align: center;
+    }
+    &:hover{
+        background: rgba(200,200,200,0.8);
+        cursor: pointer;
+    }
+}
+.list-detail{
+    padding: 0;
+    list-style-type: none;
+    float: right;
+    & span {
+        font-weight: bold;
+        padding-left:38px;
+    }
+    & li{
+        padding:3px;
+    }
+}
+
+.final-pay{
+    border-top: 3px solid #FF5E45;
+    & span{
+        border-bottom: 1px solid #FF5E45;
+    }
+    
+}

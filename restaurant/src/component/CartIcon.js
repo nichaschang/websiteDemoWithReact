@@ -1,12 +1,43 @@
-import React from 'react'
+import React ,{useState,useEffect} from 'react'
 import {FaShoppingCart} from 'react-icons/fa'
 import '../css/CartIcon.scss'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import {handle_addCart} from '../action/index'
 
-function CartIcon() {
+function CartIcon(props) {
+const [cartLength,setCartLength]=useState(0)
+
+useEffect(()=>{
+    setCartLength(props.CartAmount)
+},[])
+useEffect(()=>{
+setCartLength(props.CartAmount)
+},[props.CartAmount])
+
+
     return (
-        <div>
+        <div className="Cart-icon-box">
             <FaShoppingCart className="Cart-icon" />
+            <div className="CartAmount">{cartLength}</div>
         </div>
     )
 }
-export default CartIcon
+
+const mapStateToProps = store => {
+    return {
+      //購物車內容
+      Cart: store.cart,
+      CartAmount:store.CartAmount,
+    }
+  }
+
+  const mapDispatchToProps = dispatch => {
+    return bindActionCreators(
+      {
+        handle_addCart,
+      },
+      dispatch
+    )
+  }
+  export default connect(mapStateToProps, mapDispatchToProps)(CartIcon)
