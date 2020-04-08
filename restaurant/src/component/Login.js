@@ -1,36 +1,45 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import {Link} from 'react-router-dom'
 import '../css/Login.scss'
 import '../css/home.scss'
 import {MdMailOutline} from  'react-icons/md'
 import {FaLock} from  'react-icons/fa'
+import * as Yup from 'yup'
 
-const LoginTest = () => {
+const SigninSchema=Yup.object().shape({
+    email:Yup.string()
+        .required('*必填')
+        .email('信箱格式有誤'),
+    password:Yup.string()
+        .required('請輸入密碼')
+        .oneOf(['1234'],'密碼不正確')
+        .min(4,"密碼至少四碼")
+        .max(8,'最多八碼')
+})
+
+const LoginTest = (props) => {
+
 
     return (
 <>
   <Formik
     initialValues={{ email: '', password: '' }}
-    validate={values => {
-      const errors = {};
-      if (!values.email) {
-        errors.email = '*必填';
-      } else if (
-        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-      ) {
-        errors.email = '信箱格式有誤';
-      }
-      return errors;
-    }}
+    validationSchema={SigninSchema}
     onSubmit={(values, { setSubmitting }) => {
-      setTimeout(() => {
-        alert(JSON.stringify(values, null, 2));
+        setTimeout(() => {
+            console.log(values)
+        alert(JSON.stringify(values));
         setSubmitting(false);
-      }, 400);
+      }, 500);
     }}
+    
+    // onSubmit={(values,{setSubmitting})=> {
+    //     console.log(setSubmitting)
+    //     console.log(values)
+    // }}
   >
-    {({ isSubmitting }) => (
+    {({ handleReset,isValid }) => (
         <div className="login-box">
                 <div className="clearfix"></div>
                     <div className="login-title">
@@ -54,11 +63,12 @@ const LoginTest = () => {
                 <Field type="password" name="password" />
             </label>
         </div>
-        <ErrorMessage name="password" component="div" />
-        <p className="forget-info">忘記密碼</p>
+        <ErrorMessage name="password" component="div"  style={{color:"#f00",textAlign:"left",padding:"5px"}}/>
+        <p className="forget-info">密碼1234</p>
         <div className="btn-box">
-            <Link to="/" type="submit" className="registered-btn">註冊</Link>
-            <Link to="/" type="submit"  className="login-btn" disabled={isSubmitting}>登入</Link>
+            {/* <Link to="/" className="registered-btn">註冊</Link> */}
+            <button type="button" onClick={handleReset} className="login-btn">重新輸入</button>
+            <button type="submit" disabled={!isValid} className="login-btn">登入</button>
         </div>
       </Form>
     </div>

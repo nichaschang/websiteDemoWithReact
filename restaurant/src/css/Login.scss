@@ -28,6 +28,7 @@
         margin: 0 0 15px 0;
     }
     & .btn-box {
+        width:100%;
         margin-top:25px;
     }
 }
@@ -70,6 +71,7 @@ width: 100%;
 }
 
 .forget-info {
+    font-size: $font-xs;
     text-align: left;
     color:#f00;
     margin:0;
@@ -81,6 +83,8 @@ width: 100%;
     padding:5px 15px;
     margin:0px 5px;
     width: 50%;
+    box-sizing: border-box;
+    font-size: $font-m;
     text-decoration: none;
     &:hover {
         background: #aaa;
@@ -92,7 +96,11 @@ width: 100%;
     padding:5px 15px;
     margin:0px 5px;
     width: 50%;
+    box-sizing: border-box;
+    font-size: $font-m;
     text-decoration: none;
+    border: none;
+    cursor: pointer;
     &:hover{
         background: #d56c23;
     }

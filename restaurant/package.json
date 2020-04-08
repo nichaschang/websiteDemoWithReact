@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "@types/yup": "^0.26.34",
     "bootstrap": "^4.4.1",
     "eslint-config-react-app": "^5.2.1",
     "eslint-plugin-import": "^2.20.2",
@@ -24,7 +25,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "yup": "^0.28.3"
   },
   "scripts": {
     "start": "react-scripts start",
