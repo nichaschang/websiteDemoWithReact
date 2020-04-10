@@ -10,9 +10,9 @@ function ItemCard(props) {
 const [myFavor,setMyFavor]=useState(true)
 
 
-useEffect(()=>{
-    console.log(props.CartAmount)
-},[props.CartAmount])
+// useEffect(()=>{
+//     console.log(props.CartAmount)
+// },[props.CartAmount])
 
     return (
         <>

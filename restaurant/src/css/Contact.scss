@@ -1,0 +1,113 @@
+@import "./variables.scss";
+
+
+.contact-box{
+    display: flex;
+    background:#EFE9E7 ;
+    padding: 15px 30px;
+    min-height: 707px;
+    width:100%;
+    box-sizing: border-box;
+    text-align: center;
+    flex-direction: column;
+}
+.contact-banner-box{
+    width:100%;
+    height: 250px;
+    overflow: hidden;
+    background: url("/image/contactUs.jpg") no-repeat;
+    background-size: cover;
+    background-position: right 50%  bottom 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 5px;
+    margin-bottom: 0px;
+    & p {
+        color:$white;
+        background: rgba(70,70,70,0.25);
+        padding:50px 90px;
+        font-size: $font-xl;
+        
+    }
+}
+.contact-banner{
+    width:100%;
+}
+
+.contact-form-box{
+    background: $white;
+    overflow: hidden;
+    margin-top: 0px;
+    & .btn-box{
+        justify-content: flex-end;
+        align-items: flex-start;
+        // margin:0px 0px 50px 0px;
+        & .send-btn {
+            padding: 8px 50px;
+            border: none;
+        }
+    }
+}
+.contact-form-ul{
+    list-style-type: none;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+    & li {
+        box-sizing: border-box;
+        margin: 30px 0px;
+    }
+    & button {
+        margin:5px 10px 5px 0px;
+        padding: 10px 5px;
+        border:1px solid #EFE9E7;
+    }
+    & .cusExp-box{
+        margin-top:30px;
+    }
+    & .cusExp{
+        margin:10px;
+        padding: 8px 0;
+        font-weight: bold;
+        width: 90%;
+        border-bottom: 1px solid #EFE9E7;
+    }
+    & .cusExp-choose{
+        display: flex;
+    }
+}
+
+.contact-list{
+    display: flex;
+    align-items: flex-end;
+    & div{
+        width:100%;
+    }
+}
+
+.contact-list-txtbox{
+
+    & div{
+        width:100%;
+    }
+}
+.error-box{
+    display: flex;
+    margin-left:100px;
+    & span{
+        margin:0px 15px 5px 15px;
+        color: #f00;
+    }
+    & span::before {
+        content: '*';
+    }
+}
+.contact-send-box{
+    display: flex;
+    justify-content: flex-end;
+    min-height:83px ;
+    margin:0 auto;
+    width:80%;
+}

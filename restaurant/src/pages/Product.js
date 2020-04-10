@@ -4,8 +4,11 @@ import ItemCard from '../component/ItemCard'
 import ProductAside from '../component/ProductAside'
 import CartIcon from '../component/CartIcon'
 import SearchInput from '../component/SearchInput'
-import {order} from '../component/items'
+// import {order} from '../component/items'
 import {Link} from 'react-router-dom'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import {handle_addCart,getMemberData,getProductData} from '../action/index'
 
 function Product(props) {
 
@@ -15,7 +18,7 @@ const [pBox,setPBox]=useState([])
 //sort
     useEffect(()=>{
         let box=[]
-        order.map((v,i)=>{
+        props.productInfo.map((v,i)=>{
             v.sort.map((val,ind)=>{
                 if(val==pSort){
                   box.push(v)  
@@ -25,11 +28,20 @@ const [pBox,setPBox]=useState([])
         setPBox(box)
     },[pSort])
 
+
+    useEffect(() => {
+        console.log('pBox',pBox)
+    }, [pBox])
+
+    useEffect(() => {
+        props.getProductData()
+    }, [])
+
     //search
     function test(e){
         let box=[]
         if(e!==''){
-            order.map((v,i)=>{
+            props.productInfo.map((v,i)=>{
                 let dataWord=v.itemName.split('')
                 let searchWord=e.split('')
                 for(let i=0;i<dataWord.length;i++){
@@ -47,14 +59,14 @@ const [pBox,setPBox]=useState([])
             })
             setPBox(box)
         }else{
-            setPBox(order)
+            setPBox(props.productInfo)
         }
         
     }
 
     useEffect(() => {
-        console.log(pBox)
-    }, [pBox])
+        setPBox(props.productInfo)
+    }, [props.productInfo])
     return (
         <div className="product-box">
             <div className="clearfix"></div>
@@ -84,4 +96,24 @@ const [pBox,setPBox]=useState([])
         </div>
     )
 }
-export default Product
+
+const mapStateToProps = store => {
+    return {
+      //購物車內容
+      Cart: store.cart,
+      memberInfo:store.memberInfo,
+      productInfo:store.productInfo,
+    }
+  }
+  
+  const mapDispatchToProps = dispatch => {
+    return bindActionCreators(
+      {
+        handle_addCart,
+        getMemberData,getProductData,
+      },
+      dispatch
+    )
+  }
+  export default connect(mapStateToProps, mapDispatchToProps)(Product)
+// export default Product

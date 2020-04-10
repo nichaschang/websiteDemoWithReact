@@ -6,6 +6,42 @@ import '../css/home.scss'
 import {MdMailOutline} from  'react-icons/md'
 import {FaLock} from  'react-icons/fa'
 import * as Yup from 'yup'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import {getMemberData} from '../action/index'
+
+
+
+function Login(props){
+
+const [loginStatus,setLoginStatus]=useState()
+const [userName,setUserName]=useState('')
+
+function check(val){
+    props.getMemberData(val)
+}
+
+useEffect(() => {
+    if(loginStatus==true){
+        if(props.memberInfo.length==1 ){
+            console.log(props.memberInfo)
+            
+            setTimeout(()=>{
+                alert('登入成功')
+                props.memberInfo.map((v,i)=>{
+                    setUserName(v.name)
+                })
+            },500)
+            
+        }else if(props.memberInfo.length==0){
+            setTimeout(()=>{
+                alert('登入失敗')
+            },500)
+            
+        }
+    }
+    
+}, [props.memberInfo])
 
 const SigninSchema=Yup.object().shape({
     email:Yup.string()
@@ -13,31 +49,19 @@ const SigninSchema=Yup.object().shape({
         .email('信箱格式有誤'),
     password:Yup.string()
         .required('請輸入密碼')
-        .oneOf(['1234'],'密碼不正確')
         .min(4,"密碼至少四碼")
         .max(8,'最多八碼')
 })
 
-const LoginTest = (props) => {
-
-
-    return (
-<>
-  <Formik
+const loginDOM=(
+<Formik
     initialValues={{ email: '', password: '' }}
     validationSchema={SigninSchema}
-    onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-            console.log(values)
-        alert(JSON.stringify(values));
+    onSubmit={async (values,{setSubmitting}) => {
+        setLoginStatus(true)
+        check(values)
         setSubmitting(false);
-      }, 500);
     }}
-    
-    // onSubmit={(values,{setSubmitting})=> {
-    //     console.log(setSubmitting)
-    //     console.log(values)
-    // }}
   >
     {({ handleReset,isValid }) => (
         <div className="login-box">
@@ -52,7 +76,7 @@ const LoginTest = (props) => {
             <p>Email Address*</p>
             <label className="input_mail">
                 <MdMailOutline className="mail-icon" />
-                <Field type="email" name="email" />
+                <Field type="email" name="email" autoComplete="off" />
             </label>
         </div>
         <ErrorMessage name="email" component="div" style={{color:"#f00",textAlign:"left",padding:"5px"}}/>
@@ -60,7 +84,7 @@ const LoginTest = (props) => {
             <p>Password*</p>
             <label className="input-psw">
                 <FaLock  className="psw-icon" />
-                <Field type="password" name="password" />
+                <Field type="password" name="password" autoComplete="off"/>
             </label>
         </div>
         <ErrorMessage name="password" component="div"  style={{color:"#f00",textAlign:"left",padding:"5px"}}/>
@@ -68,16 +92,43 @@ const LoginTest = (props) => {
         <div className="btn-box">
             {/* <Link to="/" className="registered-btn">註冊</Link> */}
             <button type="button" onClick={handleReset} className="login-btn">重新輸入</button>
-            <button type="submit" disabled={!isValid} className="login-btn">登入</button>
+            <button type="submit" disabled={!isValid} onClick={()=>console.log(isValid)} className="login-btn">登入</button>
         </div>
       </Form>
     </div>
     )}
   </Formik>
+)
+const helloDOM=(
+    <div className="login-box">
+        <p>
+        {userName!==''?`Hello!${userName}`:''}
+        </p>
+    </div>
+)
+
+    return (
+<>
+  {props.memberInfo.length==1?helloDOM:loginDOM}
 </>
     )
 }
     
   
+const mapStateToProps = store => {
+return {
+    memberInfo:store.memberInfo,
+}
+}
 
-export default LoginTest;
+const mapDispatchToProps = dispatch => {
+return bindActionCreators(
+    {
+    getMemberData
+    },
+    dispatch
+)
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
+
+// export default Login;

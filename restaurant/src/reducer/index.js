@@ -19,8 +19,28 @@ const CartAmount=(state=0,action)=>{
     }
 }
 
+
+const memberInfo=(state=[],action)=>{
+    console.log('action',action)
+    switch(action.type){
+        case "SHOW_MEMBER":
+            return action.value
+        default:
+            return state
+    }
+}
+
+const productInfo=(state=[],action)=>{
+    switch(action.type){
+        case "SHOW_Product":
+            return action.value
+        default:
+            return state
+    }
+}
+
 const rootReducer = combineReducers({
-    cart,CartAmount
+    cart,CartAmount,memberInfo,productInfo
 })
 
 

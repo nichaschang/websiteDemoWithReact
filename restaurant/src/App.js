@@ -7,10 +7,10 @@ import "./css/main.scss"
 import Header from './component/Header'
 import Footer from './component/Footer'
 import Login from './component/Login'
-import LoginTest from './component/LoginTest'
 import Home from './pages/Home'
 import Order from './pages/Order'
 import Product from './pages/Product'
+import Contact from './pages/Contact'
 
 function App() {
 
@@ -22,9 +22,6 @@ function App() {
           <Route exact path="/">
             <Home/>
           </Route>
-          <Route path="/LoginTest">
-            <LoginTest/>
-          </Route>
           <Route path="/Login">
             <Login/>
           </Route>
@@ -33,6 +30,9 @@ function App() {
           </Route>
           <Route path="/Order">
             <Order />
+          </Route>
+          <Route path="/Contact">
+            <Contact />
           </Route>
         </Switch>
           <Footer />
