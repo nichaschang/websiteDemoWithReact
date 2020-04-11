@@ -11,6 +11,7 @@ import Home from './pages/Home'
 import Order from './pages/Order'
 import Product from './pages/Product'
 import Contact from './pages/Contact'
+import Member from './pages/Member'
 
 function App() {
 
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path="/Login">
             <Login/>
+          </Route>
+          <Route path="/Member">
+            <Member/>
           </Route>
           <Route path="/Product">
             <Product />

@@ -2,9 +2,15 @@
 
 body {
     background-color: $background;
-    font-family: "Montserrat", "微軟正黑體", sans-serif;
+    font-family: "Roboto","Montserrat", "微軟正黑體", sans-serif;
   }
 
   h1{
       font-size: 2.5rem;
+  }
+
+  .basic-box {
+      min-height: 707px;
+      background: #EFE9E7;
+      width:100%;
   }

@@ -21,7 +21,6 @@ const CartAmount=(state=0,action)=>{
 
 
 const memberInfo=(state=[],action)=>{
-    console.log('action',action)
     switch(action.type){
         case "SHOW_MEMBER":
             return action.value

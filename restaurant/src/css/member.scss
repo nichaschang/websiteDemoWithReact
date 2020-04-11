@@ -1,0 +1,135 @@
+@import "./variables.scss";
+
+.member-box{
+    display: flex;
+    width: 90%;
+    min-height: 707px;
+    margin: 0 auto;
+    padding: 20px;
+    & ul{
+        padding: 0;
+    }
+    & li {
+        padding: 10px 16px;
+    }
+}
+.member-icon{
+    margin: 0 15px;
+}
+
+// memberInfo
+.member-info-form{
+    width: 70%;
+    min-height: 707px;
+    text-align: left;
+    padding: 20px 60px;
+    & table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    & th{
+        background: #C8C8C8;
+    }
+    .member-td {
+        width:70%;
+        padding-right: 15px;
+    }
+    & div{
+        width: 100%;
+    }
+    
+    & tr{
+        height: 50px;
+    }
+}
+
+.member-content-box {
+    width: 75%;
+    background: #fff;
+    margin: 0 10px;
+    border-radius: 15px;
+    overflow: hidden;
+    padding-top: 15px;
+}
+
+.member-bread{
+    padding: 0px 65px;
+    & a{
+        text-decoration: none;
+        color: $black;
+    }
+
+}
+
+
+.MemberInfo-btn{
+    background: #F56C23;
+    color: $white;
+    padding:5px 15px;
+    margin:30px 5px;
+    border:none;
+    float: right;
+    text-decoration: none;
+    &:hover{
+        background: #d56c23;
+    }
+    
+        
+}
+
+.member-input{
+    width: 100%;
+    padding: 5px 12px;
+    margin-right: 15px;
+    &:disabled{
+        background: #ddd;
+        border:none;
+    }
+}
+
+.eidt-box-open{
+    position: absolute;
+    max-width:180px;
+    top:50%;
+    left:50%;
+    height: 110px;
+    border: 1px solid #ddd;
+    background: $white;
+    color: $black;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    padding: 10px;
+    box-shadow: 2px 2px 8px #aaa;
+    & p{
+        margin:0
+    }
+    & .edit-Info-input{
+        min-height: 54px;
+    }
+}
+
+.edit-btn-box{
+display: flex;
+justify-content:center;
+}
+
+.editting{
+    border: none;
+    padding: 5px 15px;
+    margin: 0 20px;
+}
+.edit-ok{
+    border: none;
+    padding: 5px 15px;
+    background: #F56C23;
+    margin-right: 10px;
+    width: 50%;
+}
+.edit-cancel{
+    border: none;
+    padding: 5px 15px;
+    background: #C8C8C8;
+    width: 50%;
+}

@@ -10,31 +10,43 @@ import {getMember} from '../action/index'
 function Header(props) {
 const [open,setOpen]=useState(false)
 const [userName,setUserName]=useState('會員登入')
-const [login,setLogin]=useState(false)
+const [login,setLogin]=useState(true)
 
 useEffect(() => {
+    //會員狀態改變 將login為反向
     setLogin(!login)
-    if(login){
-        props.memberInfo.map((v,i)=>{
-        setUserName(v.name)
-        console.log(v.name)
-        })
-    }else{
-        setUserName('會員登入')
-    }
-    console.log(props.memberInfo.length)
 }, [props.memberInfo])
 
+useEffect(()=>{
+    //更改會員登入欄位的文字
+    if(props.memberInfo.length==1){
+        //會員狀態改變代表登入成功 
+        //userName文字將會更改
+        props.memberInfo.map((v,i)=>{
+        setUserName(v.name)
+        console.log(v)
+        })
+    }else{
+        //代表 登出 或是 尚未登入
+        setUserName('會員登入')
+    }
+
+},[login])
+
+//登入成功使用此DOM
 const isLogin=(
     <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Login"><FaSignInAlt className="header-icon" />{userName}</Link></li>
 )
+
+//尚未登入成功使用此DOM
 const isLogout=(
     <li onClick={()=>{
-        setOpen(!open)   
-        setUserName('會員登入')
-        props.getMember([null,null])
+        setOpen(!open)  
+        props.getMember([null,null,null])
     }}><Link className="header-item" to="/Login"><FaSignInAlt className="header-icon"/>{userName}</Link></li>
 )
+
+//畫面DOM
     return (
     <>
      <div className="header-box">
@@ -47,7 +59,9 @@ const isLogout=(
                     <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/"><FaUtensils className="header-icon" /> 餐廳特色</Link></li>
                     <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Contact"><FaComment className="header-icon"/> 聯絡我們</Link></li>
                     <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Product"><FaShoppingCart className="header-icon"/> 線上訂餐</Link></li>
-                    {!login?isLogout:isLogin}
+                    <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Member">Member</Link></li>
+                    {/* 切換DOM */}
+                    {login?isLogout:isLogin}
                     <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Order"><CartIcon /></Link></li>
                 </ul>
             </div>

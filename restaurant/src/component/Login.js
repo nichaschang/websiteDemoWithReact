@@ -1,5 +1,5 @@
-import React,{useEffect, useState} from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import React,{useEffect, useState} from 'react'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
 import {Link} from 'react-router-dom'
 import '../css/Login.scss'
 import '../css/home.scss'
@@ -22,9 +22,10 @@ function check(val){
 }
 
 useEffect(() => {
+
+    //判斷登入成功與否的地方
     if(loginStatus==true){
-        if(props.memberInfo.length==1 ){
-            console.log(props.memberInfo)
+        if(props.memberInfo.length==1){
             
             setTimeout(()=>{
                 alert('登入成功')
@@ -50,7 +51,7 @@ const SigninSchema=Yup.object().shape({
     password:Yup.string()
         .required('請輸入密碼')
         .min(4,"密碼至少四碼")
-        .max(8,'最多八碼')
+        .max(10,'最多十碼')
 })
 
 const loginDOM=(
