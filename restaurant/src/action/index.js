@@ -29,11 +29,32 @@ export const getMemberData=(val)=>{
             method:'GET',
         })
         const res=await fetch(request)
+        .catch((err)=>{
+            console.log(err)
+        })
         const data=await res.json()
         dispatch(getMember(data))
     }   
 }
 
+
+export const updateMemberData=(val)=>{
+    
+    return async dispatch=>{
+        await console.log(val)
+        const request=new Request(`http://localhost:3000/member/${val.id}`,{
+            method:'PATCH',
+            body:JSON.stringify(val)
+        })
+        await console.log(request)
+        const res=await fetch(request)
+        .catch((err)=>{
+            console.log(err)
+        })
+        const data=await res.json()
+        await console.log(data)
+    }   
+}
 
 export const getProductData=(val)=>{
     return async dispatch=>{

@@ -19,20 +19,23 @@
 
 // memberInfo
 .member-info-form{
-    width: 70%;
-    min-height: 707px;
+    margin: 0 auto;
+    width: 80%;
     text-align: left;
     padding: 20px 60px;
     & table {
         width: 100%;
-        border-collapse: collapse;
+        // border-collapse: collapse;
+        border:1px solid #eee;
+        padding: 5px;
     }
     & th{
         background: #C8C8C8;
+        padding: 15px;
     }
     .member-td {
-        width:70%;
-        padding-right: 15px;
+        width:75%;
+        padding:0 25px 0 5px;
     }
     & div{
         width: 100%;
@@ -40,15 +43,20 @@
     
     & tr{
         height: 50px;
+        margin: 5px 0;
+    }
+    .editting-td {
+        width: 12%;
     }
 }
+
 
 .member-content-box {
     width: 75%;
     background: #fff;
     margin: 0 10px;
-    border-radius: 15px;
     overflow: hidden;
+    border-radius: 15px;
     padding-top: 15px;
 }
 
@@ -68,7 +76,6 @@
     padding:5px 15px;
     margin:30px 5px;
     border:none;
-    float: right;
     text-decoration: none;
     &:hover{
         background: #d56c23;
@@ -79,11 +86,12 @@
 
 .member-input{
     width: 100%;
-    padding: 5px 12px;
-    margin-right: 15px;
+    padding: 5px 8px;
+    font-size: $font-m;
     &:disabled{
-        background: #ddd;
+        background: #fff;
         border:none;
+        border-bottom: 1px solid #ccc;
     }
 }
 
@@ -118,7 +126,7 @@ justify-content:center;
 .editting{
     border: none;
     padding: 5px 15px;
-    margin: 0 20px;
+    margin:0 auto;
 }
 .edit-ok{
     border: none;
@@ -132,4 +140,34 @@ justify-content:center;
     padding: 5px 15px;
     background: #C8C8C8;
     width: 50%;
+}
+
+// MemeberOrder
+
+.orderItem-show{
+    display: flex;
+    height:0;
+    transition:1.5s;
+}
+.orderItem-show-sec{
+    height:100%;
+    transition:1.5s;
+    background: #ccc;
+}
+.member-info-order{
+    margin: 0 auto;
+    width: 80%;
+    & h3{
+        background: #bbb;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom:1px solid #aaa;
+    }
+    & h3:hover{
+        background: rgba(200,200,200,0.65);
+        border-bottom:3px solid #F56C23;
+        margin: 5px 0;
+        box-shadow: 0px 8px 10px #999;
+    }
 }

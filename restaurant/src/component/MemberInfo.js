@@ -1,4 +1,4 @@
-import React, {useState,useEffect}from 'react'
+import React, {useState,useEffect,useCallback}from 'react'
 import {Link} from 'react-router-dom'
 import '../css/main.scss'
 import '../css/member.scss'
@@ -16,26 +16,48 @@ const [email,setEmail]=useState('')
 const [birth,setBirth]=useState('')
 const [openName,setOpenName]=useState(false)
 const [openMobile,setOpenMobile]=useState(false)
-
-console.log(props.cusInfo)
-
+const [order,setOrder]=useState([])
+const [cusId,setCusId]=useState('')
 useEffect(()=>{
     let box=[]
     props.cusInfo.map((v,i)=>{
+        setCusId(v.id)
         setName(v.name)
         setEmail(v.email)
         setMobile(v.mobile)
         setBirth(v.birth)
+        setOrder(v.order)
         box.push(v)
+        console.log(v.order)
     })
+
     setMemberInfo(box)
+    console.log('第一次memberInfo',memberInfo)
+    console.log('box',box)
 },[])
 
 useEffect(()=>{
-    console.log(memberInfo)
+    console.log('改變後memberInfo',memberInfo)
+    console.log('name',name)
 },[memberInfo])
 
+function sendcusInfo(){
+    let newObj={
+        id:cusId,
+        name:name,
+        email:email,
+        mobile:mobile,
+        birth:birth,
+        order:order,
+    }
+    console.log('newObj',newObj)
+    props.updateMemberInfo(newObj)
+}
 
+// useEffect(()=>{
+//     let userName={name}
+//     setMemberInfo({...memberInfo,name:userName})
+// },[name])
     return (
         <>
             <div className="member-info-form">
@@ -47,7 +69,7 @@ useEffect(()=>{
                             {/* <span>{name}</span> */}
                             
                         </td>
-                        <td>
+                        <td className="editting-td">
                             <button className="editting" onClick={()=>setOpenName(true)}>編輯</button>
                             
                         {!openName?'':(<MemberFormikName 
@@ -59,8 +81,9 @@ useEffect(()=>{
                     </tr>
                     <tr>
                         <th><span>電話:</span></th>
-                        <td>
-                        <span>{mobile}</span>
+                        <td className="member-td">
+                        {/* <span>{mobile}</span> */}
+                        <input className="member-input" type="text" value={mobile} disabled/>
                         </td>
                         <td>
                             <button className="editting" onClick={()=>setOpenMobile(true)}>編輯</button>
@@ -68,8 +91,9 @@ useEffect(()=>{
                     </tr>
                     <tr>
                         <th><span>信箱:</span></th>
-                        <td>
-                        <span>{email}</span>
+                        <td className="member-td">
+                        {/* <span>{email}</span> */}
+                        <input className="member-input" type="text" value={email} disabled/>
                         </td>
                         <td>
                             <span></span>
@@ -78,15 +102,16 @@ useEffect(()=>{
                     
                     <tr>
                         <th><span>生日:</span></th>
-                        <td>
-                        <span>{birth}</span>
+                        <td className="member-td">
+                        {/* <span>{birth}</span> */}
+                        <input className="member-input" type="text" value={birth} disabled/>
                         </td>
                         <td>
                             <span></span>
                         </td>
                     </tr>
                 </table>
-            <button className="MemberInfo-btn">更新</button>
+            <button className="MemberInfo-btn" onClick={()=>sendcusInfo()}>更新</button>
             
                 
             {!openMobile?'':(<MemberFormikMobile 

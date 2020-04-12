@@ -61,7 +61,8 @@ const loginDOM=(
     onSubmit={async (values,{setSubmitting}) => {
         setLoginStatus(true)
         check(values)
-        setSubmitting(false);
+        alert(JSON.stringify(values))
+        setSubmitting(false)
     }}
   >
     {({ handleReset,isValid }) => (

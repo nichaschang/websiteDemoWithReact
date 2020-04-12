@@ -4,23 +4,26 @@ import '../css/main.scss'
 import '../css/member.scss'
 import MemberAside from '../component/MemberAside'
 import MemberInfo from '../component/MemberInfo'
+import MemeberOrder from '../component/MemeberOrder'
 import {FaUserAlt,FaClipboardList,FaHeart,FaList} from 'react-icons/fa'
 import {IoIosArrowForward} from 'react-icons/io'
 import Typography from '@material-ui/core/Typography'
 import Breadcrumbs from '@material-ui/core/Breadcrumbs'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import {getMember} from '../action/index'
+import {getMember,updateMemberData} from '../action/index'
 
 function Member(props){
 console.log(props)
+
+const [memberSort,setMemberSort]=useState('個人資料')
 
     return (
         <>
             <div className="basic-box">
                 <div className="member-box" >
                     <div style={{width:'25%'}}>
-                    <MemberAside />
+                    <MemberAside getsort={(e)=>setMemberSort(e)}/>
                     </div>
                     <div className="member-content-box">
                     <div className="member-bread">
@@ -28,10 +31,16 @@ console.log(props)
                         <Link to="/">
                             會員中心
                         </Link>
-                        <Typography>個人資料</Typography>
+                        <Typography>{memberSort}</Typography>
                         </Breadcrumbs>
                     </div>
-                        <MemberInfo cusInfo={props.memberInfo}/>
+                    {/* 會員基本資料 */}
+                    {memberSort=='個人資料'?(<MemberInfo cusInfo={props.memberInfo}
+                        updateMemberInfo={(e)=>props.updateMemberData(e)}
+                    />):''}
+                    {/* 會員訂單 */}
+                    {memberSort=='訂單紀錄'?(<MemeberOrder cusInfo={props.memberInfo}/>):''}
+                        
                     </div>
                 </div>
             </div>
@@ -49,7 +58,7 @@ const mapStateToProps = store => {
 const mapDispatchToProps = dispatch => {
 return bindActionCreators(
     {
-        getMember
+        getMember,updateMemberData
     },
     dispatch
 )
