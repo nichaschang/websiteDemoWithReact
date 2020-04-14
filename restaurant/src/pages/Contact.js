@@ -1,5 +1,5 @@
 import React, {useState,useEffect}from 'react'
-import {Link} from 'react-router-dom'
+import {Link,withRouter} from 'react-router-dom'
 import "../css/Contact.scss"
 import 'date-fns';
 import { Button ,Menu ,MenuItem,Grid } from '@material-ui/core'
@@ -23,15 +23,17 @@ function Contact(props){
 const [color,setColor]=useState('')
 const [cusExp,setCusExp]=useState('')
 const [anchorEl, setAnchorEl] = useState(null);
-const [selectedDate, setSelectedDate] =useState(new Date('2014-08-18T21:11:54'));
 
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
+useEffect(()=>{
+console.log(props)
+},[])
+
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
+//   設定意見類別
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -42,10 +44,11 @@ const [selectedDate, setSelectedDate] =useState(new Date('2014-08-18T21:11:54'))
         <Formik
 initialValues={{userName:'',phone:'',email:'',comesDate:''}}
 validationSchema={AdviceSchema}
-onSubmit={(values,{setSubmitting})=>{
+onSubmit={(values,{setSubmitting,resetForm})=>{
     setTimeout(()=>{
-        alert(JSON.stringify(values))
-        setSubmitting(false)
+        alert('您的建議已經送出囉')
+        resetForm({})
+        setSubmitting(true)
     },500)
 }}
 >
@@ -130,4 +133,4 @@ onSubmit={(values,{setSubmitting})=>{
     )
 }
 
-export default Contact
+export default withRouter(Contact)

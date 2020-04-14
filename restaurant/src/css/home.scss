@@ -25,12 +25,15 @@
     display: flex;
     padding:0 20px;
     margin:50px 0px;
+    transition: 1s;
+    opacity: 0.65;
 }
 .features-content-item{
 display: flex;
 flex-direction: column;
 align-items: center;
 padding:0px 35px;
+transition: 1.5s;
 width: 30.333%;
     & img{
         border-radius: 50%;
@@ -39,7 +42,50 @@ width: 30.333%;
     & h3{
         margin:15px 0px 0px 0px;
     }
+    & p{
+        padding: 0 10px;
+    }
 }
+.features-content-item1{
+display: flex;
+flex-direction: column;
+align-items: center;
+padding:0px 35px;
+width: 30.333%;
+transition: 1.5s;
+transform: translateX(-15px);
+    & img{
+        border-radius: 50%;
+        margin:0 auto;
+    }
+    & h3{
+        margin:15px 0px 0px 0px;
+    }
+    & p{
+        padding: 0 10px;
+    }
+}
+
+.features-content-item3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:0px 35px;
+    width: 30.333%;
+    transition: 1.5s;
+    transform: translateX(15px);
+        & img{
+            border-radius: 50%;
+            margin:0 auto;
+        }
+        & h3{
+            margin:15px 0px 0px 0px;
+        }
+        & p{
+            padding: 0 10px;
+        }
+    }
+
 
 .chef-info{
     display: flex;
@@ -47,9 +93,13 @@ width: 30.333%;
     height:460px;
     width:100%;
     background:#3D1101;
-    & div{
-        padding:50px 30px
-    }
+}
+
+.chef-info-content{
+    transition: 1.5s;
+    transform: translateX(15px);
+    padding: 30px;
+    opacity: 0.6;
 }
 .customer-msg{
     display: flex;
@@ -262,7 +312,31 @@ width: 30.333%;
         & p {
             font-size: $font-x;
         }
+        & .features-content-item1{
+            margin:10px auto;
+            width: 80vw;
+            padding: 0;
+        }
+        & h3 {
+            font-size: $font-xl;
+        }
+        & p {
+            font-size: $font-x;
+        }
+        & .features-content-item3{
+            margin:10px auto;
+            width: 80vw;
+            padding: 0;
+        }
+        & h3 {
+            font-size: $font-xl;
+        }
+        & p {
+            font-size: $font-x;
+        }
     }
+
+
     .chef-info{
         flex-direction: column;
         height: 100%;

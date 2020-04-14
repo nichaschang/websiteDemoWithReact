@@ -3,6 +3,20 @@
 .order-box {
     background:#EFE9E7;
     min-height: 500px;
+    
+    & .send-btn {
+    background: #F56C23;
+    color: $white;
+    padding:5px 25px;
+    margin:30px 103px;
+    float:right;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    & .send-btn:hover{
+        background: #d56c23;
+    }
+}
 }
 
 .order-process{
@@ -59,5 +73,23 @@
     & span{
         border-bottom: 1px solid #FF5E45;
     }
-    
+}
+
+
+@media (max-width: 760px){
+    .send-btn {
+        background: #F56C23;
+        color: $white;
+        padding:5px;
+        margin:30px 75px;
+        width: 15%;
+        float:right;
+        cursor: pointer;
+        border: none;
+        text-decoration: none;
+        &:hover{
+            background: #d56c23;
+        }
+    }
+
 }

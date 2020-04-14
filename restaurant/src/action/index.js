@@ -67,6 +67,26 @@ export const getProductData=(val)=>{
     }   
 }
 
+export const favorProdcut=(val,product,data)=>{
+    return dispatch=>{
+        let newData=[]
+        let idBox=[]
+        data.map((v,i)=>{
+            idBox.push(v.id)
+        })
+        if(val==true){
+            newData=[...data,product]
+            
+        }else{
+            let idx=idBox.findIndex(e=>e==product.id)
+            newData=data.filter(e=>e!==data[idx])
+        }
+        dispatch(getFavor(newData))
+    }
+}
+
+export const getFavor=value=>({type:"ADD_MYFAVOR",value:value})
+
 export const getProduct=value=>({type:"SHOW_Product",value:value})
 export const getMember=value=>({type:"SHOW_MEMBER",value:value})
 

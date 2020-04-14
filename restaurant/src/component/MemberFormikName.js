@@ -20,7 +20,8 @@ const NameSchema=Yup.object().shape({
             initialValues={{ name: ''}}
             validationSchema={NameSchema}
             onSubmit={(values,{setSubmitting}) => {
-                alert(JSON.stringify(values))
+                // alert(JSON.stringify(values))
+                alert('更新成功')
                 props.editName(values.name)
                 props.cancel()
                 setSubmitting(false)

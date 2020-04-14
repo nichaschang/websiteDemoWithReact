@@ -164,10 +164,98 @@
       "itemName": "完美願望",
       "itemEName": "Dragon Ball Package",
       "img": "/image/product_4_desktop.png",
-      "price": 999999,
+      "price": 999,
       "sort": [
         "不敗漢堡系列",
         "只愛吃薯條",
+        "全部"
+      ]
+    },
+    {
+      "id": 5,
+      "itemName": "男子漢堡",
+      "itemEName": "Man's Package",
+      "img": "/image/product_5_desktop.jpg",
+      "price": 699,
+      "sort": [
+        "不敗漢堡系列",
+        "全部"
+      ]
+    },
+    {
+      "id": 6,
+      "itemName": "可口可樂",
+      "itemEName": "Coke",
+      "img": "/image/product_6_desktop.png",
+      "price": 120,
+      "sort": [
+        "飲料",
+        "全部"
+      ]
+    },
+    {
+      "id": 7,
+      "itemName": "雪碧",
+      "itemEName": "soda",
+      "img": "/image/product_7_desktop.jpg",
+      "price": 120,
+      "sort": [
+        "飲料",
+        "全部"
+      ]
+    },
+    {
+      "id": 8,
+      "itemName": "我要吃炸雞",
+      "itemEName": "Only fried chicken",
+      "img": "/image/product_8_desktop.jpg",
+      "price": 280,
+      "sort": [
+        "肉慾主義",
+        "全部"
+      ]
+    },
+    {
+      "id": 9,
+      "itemName": "無肉不歡",
+      "itemEName": "No love without meat ",
+      "img": "/image/product_9_desktop.jpg",
+      "price": 2500,
+      "sort": [
+        "肉慾主義",
+        "全部"
+      ]
+    },
+    {
+      "id": 10,
+      "itemName": "就只是薯條",
+      "itemEName": "Only fries",
+      "img": "/image/product_10_desktop.jpg",
+      "price": 999999,
+      "sort": [
+        "只愛吃薯條",
+        "全部"
+      ]
+    },
+    {
+      "id": 11,
+      "itemName": "香茅全雞",
+      "itemEName": "Smell good's chicken",
+      "img": "/image/product_11_desktop.jpg",
+      "price": 1500,
+      "sort": [
+        "肉慾主義",
+        "全部"
+      ]
+    },
+    {
+      "id": 12,
+      "itemName": "豬肋排",
+      "itemEName": "Thin pig",
+      "img": "/image/product_12_desktop.jpg",
+      "price": 990,
+      "sort": [
+        "肉慾主義",
         "全部"
       ]
     }

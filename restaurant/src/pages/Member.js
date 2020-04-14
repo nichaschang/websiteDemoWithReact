@@ -5,18 +5,24 @@ import '../css/member.scss'
 import MemberAside from '../component/MemberAside'
 import MemberInfo from '../component/MemberInfo'
 import MemeberOrder from '../component/MemeberOrder'
+import FavorItem from '../component/FavorItem'
 import {FaUserAlt,FaClipboardList,FaHeart,FaList} from 'react-icons/fa'
 import {IoIosArrowForward} from 'react-icons/io'
+import {GoPrimitiveDot,GoTools} from 'react-icons/go'
 import Typography from '@material-ui/core/Typography'
 import Breadcrumbs from '@material-ui/core/Breadcrumbs'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import {getMember,updateMemberData} from '../action/index'
+import {getMember,updateMemberData,favorProdcut} from '../action/index'
+import Product from './Product'
 
 function Member(props){
 console.log(props)
 
 const [memberSort,setMemberSort]=useState('個人資料')
+
+
+
 
     return (
         <>
@@ -40,7 +46,21 @@ const [memberSort,setMemberSort]=useState('個人資料')
                     />):''}
                     {/* 會員訂單 */}
                     {memberSort=='訂單紀錄'?(<MemeberOrder cusInfo={props.memberInfo}/>):''}
-                        
+                    {/* 收藏餐點 */}
+                    {memberSort=='收藏餐點'?(
+                        <FavorItem cusInfo={props.memberInfo}/>):''}
+                        {/* 其他 */}
+                    {memberSort=='其他'?(
+                        <div className="member-other-box">
+                        <GoTools className="member-other-icon"/>
+                        <div className="member-other-content">
+                            <p>建構中</p>
+                            <GoPrimitiveDot className="member-other-dot1 jump"/>
+                            <GoPrimitiveDot className="member-other-dot2 jump"/>
+                            <GoPrimitiveDot className="member-other-dot3 jump"/>
+                        </div>
+                        </div>
+                    ):''}
                     </div>
                 </div>
             </div>
@@ -52,13 +72,14 @@ const [memberSort,setMemberSort]=useState('個人資料')
 const mapStateToProps = store => {
     return {
         memberInfo:store.memberInfo,
+        FavorInfo:store.FavorInfo
     }
     }
     
 const mapDispatchToProps = dispatch => {
 return bindActionCreators(
     {
-        getMember,updateMemberData
+        getMember,updateMemberData,favorProdcut,
     },
     dispatch
 )

@@ -1,7 +1,12 @@
 @import "./variables.scss";
 
 body {
-    background-color: $background;
+    // background-color: $background;
+    background-image: url("/image/bg02.jpg");
+    background-repeat: repeat;
+    background-size: 700px 1000px;
+    background-position: 48% 0px;
+    background-attachment: fixed;
     font-family: "Roboto","Montserrat", "微軟正黑體", sans-serif;
   }
 

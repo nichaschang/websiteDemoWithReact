@@ -22,7 +22,8 @@ const MobileSchema=Yup.object().shape({
             initialValues={{ mobile: ''}}
             validationSchema={MobileSchema}
             onSubmit={(values,{setSubmitting}) => {
-                alert(JSON.stringify(values))
+                // alert(JSON.stringify(values))
+                alert('更新成功')
                 props.editMobile(values.mobile)
                 props.cancel()
                 setSubmitting(false)

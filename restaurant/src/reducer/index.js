@@ -29,6 +29,15 @@ const memberInfo=(state=[],action)=>{
     }
 }
 
+const FavorInfo=(state=[],action)=>{
+    switch(action.type){
+        case "ADD_MYFAVOR":
+            return action.value
+        default:
+            return state
+    }
+}
+
 const productInfo=(state=[],action)=>{
     switch(action.type){
         case "SHOW_Product":
@@ -39,7 +48,7 @@ const productInfo=(state=[],action)=>{
 }
 
 const rootReducer = combineReducers({
-    cart,CartAmount,memberInfo,productInfo
+    cart,CartAmount,memberInfo,productInfo,FavorInfo
 })
 
 

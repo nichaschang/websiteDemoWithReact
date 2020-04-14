@@ -5,7 +5,7 @@ import {IoIosArrowForward} from  'react-icons/io'
 import '../css/order.scss'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import {handle_addCart,getMemberData,getProductData} from '../action/index'
+import {handle_addCart,getMemberData} from '../action/index'
 
 function Order(props) {
 const [discount,setDiscount]=useState(0)
@@ -19,9 +19,11 @@ useEffect(()=>{
         total+=+sprice
     })
     setTotal(total)
-    props.getMemberData()
-    props.getProductData()
 },[])
+
+function sendOrder(){
+    console.log(132)
+}
 
 useEffect(()=>{
     let total=0
@@ -30,8 +32,8 @@ useEffect(()=>{
         total+=+sprice
     })
     setTotal(total)
-    console.log(props.memberInfo)
-    console.log(props.productInfo)
+    // console.log(props.memberInfo)
+    // console.log(props.productInfo)
 },[props.Cart])
     return (
         <>
@@ -86,6 +88,7 @@ useEffect(()=>{
                         </tr>
                     </tfoot>
                 </table>
+                <button className="send-btn" onClick={()=>sendOrder()}>送出</button>
             </div>
         </>
     )
@@ -104,7 +107,7 @@ const mapStateToProps = store => {
     return bindActionCreators(
       {
         handle_addCart,
-        getMemberData,getProductData,
+        getMemberData,
       },
       dispatch
     )

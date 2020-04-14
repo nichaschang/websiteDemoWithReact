@@ -61,7 +61,7 @@ const loginDOM=(
     onSubmit={async (values,{setSubmitting}) => {
         setLoginStatus(true)
         check(values)
-        alert(JSON.stringify(values))
+        // alert(JSON.stringify(values))
         setSubmitting(false)
     }}
   >
@@ -90,7 +90,7 @@ const loginDOM=(
             </label>
         </div>
         <ErrorMessage name="password" component="div"  style={{color:"#f00",textAlign:"left",padding:"5px"}}/>
-        <p className="forget-info">密碼1234</p>
+        <p className="forget-info">帳號:Alex@mail.com/隨機密碼4碼以上都可登入</p>
         <div className="btn-box">
             {/* <Link to="/" className="registered-btn">註冊</Link> */}
             <button type="button" onClick={handleReset} className="login-btn">重新輸入</button>

@@ -171,3 +171,81 @@ justify-content:center;
         box-shadow: 0px 8px 10px #999;
     }
 }
+
+
+.member-other-box{
+    text-align: center;
+    font-size: $font-xl;
+}
+
+.member-other-icon{
+    margin:50px 30%;
+    width: 40%;
+    height: 30%;
+}
+
+.member-other-content{
+display: flex;
+position: relative;
+width: 50%;
+margin: 0 auto;
+    & p{
+        margin: 0;
+        padding-left: 80px;
+    }
+}
+
+.jump {
+animation: jumpDOT .5s infinite alternate;
+
+}
+
+.member-other-dot1 {
+    position: absolute;
+    animation-delay: -0.15s;
+    left:53%;
+}
+.member-other-dot2 {
+    position: absolute;
+    left:63%;
+    animation-delay: -0.3s;
+}
+.member-other-dot3 {
+    position: absolute;
+    left:73%;
+    animation-delay: -0.45s;
+}
+
+@keyframes jumpDOT {
+    from {
+      top: -10px;
+     
+    }
+    to {
+      top:10px;
+    }
+  }
+
+.anima-img {
+    width: 1024px;
+    height: 300px;
+}
+  
+// RWD
+
+@media (max-width: 760px){
+    .member-info-form{
+        margin: 0 auto;
+        padding: 15px;
+        width: 90%;
+        &.member-info-form .member-td {
+            width:70%;
+        }
+    }
+    .member-other-content{
+        & p{
+            margin: 0;
+            padding-left: 30px;
+        }
+    }
+}

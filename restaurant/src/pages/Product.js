@@ -29,23 +29,28 @@ const [pBox,setPBox]=useState([])
     },[pSort])
 
 
-    useEffect(() => {
-        console.log('pBox',pBox)
-    }, [pBox])
+    // useEffect(() => {
+    //     console.log('pBox',pBox)
+    // }, [pBox])
 
     useEffect(() => {
         props.getProductData()
     }, [])
 
-    //search
+    //search 判斷
     function test(e){
         let box=[]
         if(e!==''){
             props.productInfo.map((v,i)=>{
+                // 將產品名稱個別分開，變成關鍵字
                 let dataWord=v.itemName.split('')
+                // 將搜尋欄的字也分開
                 let searchWord=e.split('')
+                //使用產品名稱來搜尋是否有相同的字
                 for(let i=0;i<dataWord.length;i++){
+                    
                     let regex=RegExp(dataWord[i])
+                    //呼叫搜尋欄的字 個別比較
                     for(let k=0;k<searchWord.length;k++){
                         if(regex.test(searchWord[k])){
                             let index=box.findIndex(e=>e==v)

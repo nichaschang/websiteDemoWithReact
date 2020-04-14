@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import {Link} from 'react-router-dom'
-import {FaUtensils,FaComment,FaShoppingCart,FaSignInAlt} from 'react-icons/fa'
+import {FaUtensils,FaComment,FaShoppingCart,FaSignInAlt,FaHamburger,FaLongArrowAltUp} from 'react-icons/fa'
 import '../css/Header.scss'
 import CartIcon from './CartIcon'
 import { connect } from 'react-redux'
@@ -17,25 +17,15 @@ useEffect(() => {
     setLogin(!login)
 }, [props.memberInfo])
 
-useEffect(()=>{
-    //更改會員登入欄位的文字
-    if(props.memberInfo.length==1){
-        //會員狀態改變代表登入成功 
-        //userName文字將會更改
-        props.memberInfo.map((v,i)=>{
-        setUserName(v.name)
-        console.log(v)
-        })
-    }else{
-        //代表 登出 或是 尚未登入
-        setUserName('會員登入')
-    }
-
-},[login])
+//回到頂部
+function goTop(){
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
 
 //登入成功使用此DOM
 const isLogin=(
-    <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Login"><FaSignInAlt className="header-icon" />{userName}</Link></li>
+    <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Login"><FaSignInAlt className="header-icon" />會員登入</Link></li>
 )
 
 //尚未登入成功使用此DOM
@@ -43,7 +33,7 @@ const isLogout=(
     <li onClick={()=>{
         setOpen(!open)  
         props.getMember([null,null,null])
-    }}><Link className="header-item" to="/Login"><FaSignInAlt className="header-icon"/>{userName}</Link></li>
+    }}><Link className="header-item" to="/Login"><FaSignInAlt className="header-icon"/>登出</Link></li>
 )
 
 //畫面DOM
@@ -59,7 +49,9 @@ const isLogout=(
                     <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/"><FaUtensils className="header-icon" /> 餐廳特色</Link></li>
                     <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Contact"><FaComment className="header-icon"/> 聯絡我們</Link></li>
                     <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Product"><FaShoppingCart className="header-icon"/> 線上訂餐</Link></li>
-                    <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Member">Member</Link></li>
+                    {/* {props.memberInfo.length==1?(<li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Member">會員中心</Link></li>):''} */}
+                    <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Member">會員中心</Link></li>
+                    
                     {/* 切換DOM */}
                     {login?isLogout:isLogin}
                     <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Order"><CartIcon /></Link></li>
@@ -75,6 +67,12 @@ const isLogout=(
                 </div>
             </div>
         </div>
+        <div className="goTop" onClick={()=>goTop()}>
+            <FaLongArrowAltUp className="goTopArrow-iCon"/>
+            <FaHamburger className="goTopBurger-iCon"/>
+            <span>GoTop</span>
+        </div>
+        
     </>
     )
 }
