@@ -9,28 +9,42 @@ import {handle_addCart,favorProdcut} from '../action/index'
 function ItemCard(props) {
 
 //喜歡則設定會true
-const [myFavor,setMyFavor]=useState(true)
+const [myFavor,setMyFavor]=useState(false)
+const [recheckFavor,setRecheckFavor]=useState([])
 
+
+//獲取產品ID 下個useEffect要判斷使用
 useEffect(()=>{
-  //判斷是否已存在收藏裡
+  let box=[]
   props.FavorInfo.map((v,i)=>{
-    if(v.id==props.data.id){
-      setMyFavor(false)
-    }
+    // console.log('第一執行  = 產品ID',props.data.id)
+    // console.log('第二執行  = 我的最愛',v.id)
+    box.push(v.id)
   })
-},[])
+  setRecheckFavor(box)
 
-// useEffect(()=>{
-//     console.log(props.CartAmount)
-// },[props.CartAmount])
+
+},[props.data])
+
+//判斷產品是否有在收藏裡面
+useEffect(()=>{
+  let idx=recheckFavor.findIndex(e=>e==props.data.id)
+  if(idx!==-1){
+    setMyFavor(true)
+  }else{
+    setMyFavor(false)
+  }
+  console.log(recheckFavor)
+},[recheckFavor])
+
 
     return (
         <>
             <div className="item-card" key={props.data.itemName}>
                 <div className="item-img">
-                    <FiHeart className={`favor-icon ${!myFavor?'active':''}`}  onClick={()=>{
+                    <FiHeart className={`favor-icon ${myFavor?'active':''}`}  onClick={()=>{
                       setMyFavor(!myFavor)
-                      props.favorProdcut(myFavor,props.data,props.FavorInfo)
+                      props.favorProdcut(!myFavor,props.data,props.FavorInfo)
                     }
                     } />
                     <img src={props.data.img} />

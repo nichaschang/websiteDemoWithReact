@@ -9,7 +9,6 @@ import MemberFormikMobile from './MemberFormikMobile'
 
 
 function MemberInfo(props){
-const [memberInfo,setMemberInfo]=useState([])
 const [name,setName]=useState('')
 const [mobile,setMobile]=useState('')
 const [email,setEmail]=useState('')
@@ -20,6 +19,8 @@ const [order,setOrder]=useState([])
 const [cusId,setCusId]=useState('')
 useEffect(()=>{
     let box=[]
+
+    //會員資料
     props.cusInfo.map((v,i)=>{
         setCusId(v.id)
         setName(v.name)
@@ -28,19 +29,13 @@ useEffect(()=>{
         setBirth(v.birth)
         setOrder(v.order)
         box.push(v)
-        console.log(v.order)
+        // console.log(v.order)
     })
 
-    setMemberInfo(box)
-    console.log('第一次memberInfo',memberInfo)
-    console.log('box',box)
 },[])
 
-useEffect(()=>{
-    console.log('改變後memberInfo',memberInfo)
-    console.log('name',name)
-},[memberInfo])
 
+// 更新送出
 function sendcusInfo(){
     let newObj={
         id:cusId,
@@ -58,6 +53,7 @@ function sendcusInfo(){
 //     let userName={name}
 //     setMemberInfo({...memberInfo,name:userName})
 // },[name])
+
     return (
         <>
             <div className="member-info-form">

@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Alex",
       "email": "Alex@mail.com",
-      "mobile": "0912345689",
+      "mobile": "0912345677",
       "birth": "1978-01-09",
       "order": [
         {
@@ -184,8 +184,8 @@
     },
     {
       "id": 6,
-      "itemName": "可口可樂1",
-      "itemEName": "Coke1",
+      "itemName": "可口可樂",
+      "itemEName": "Coke",
       "img": "/image/product_6_desktop.png",
       "price": 120,
       "sort": [
@@ -195,8 +195,8 @@
     },
     {
       "id": 7,
-      "itemName": "雪碧1",
-      "itemEName": "soda1",
+      "itemName": "雪碧",
+      "itemEName": "soda",
       "img": "/image/product_7_desktop.jpg",
       "price": 120,
       "sort": [
@@ -206,8 +206,8 @@
     },
     {
       "id": 8,
-      "itemName": "我要吃炸雞1",
-      "itemEName": "Only fried chicken1",
+      "itemName": "我要吃炸雞",
+      "itemEName": "Only fried chicken",
       "img": "/image/product_8_desktop.jpg",
       "price": 280,
       "sort": [
@@ -217,8 +217,8 @@
     },
     {
       "id": 9,
-      "itemName": "無肉不歡1",
-      "itemEName": "No love without meat1 ",
+      "itemName": "無肉不歡",
+      "itemEName": "No love without meat ",
       "img": "/image/product_9_desktop.jpg",
       "price": 2500,
       "sort": [
@@ -256,127 +256,6 @@
       "price": 990,
       "sort": [
         "肉慾主義",
-        "全部"
-      ]
-    },
-    {
-      "id": 13,
-      "itemName": "雪碧2",
-      "itemEName": "soda2",
-      "img": "/image/product_7_desktop.jpg",
-      "price": 120,
-      "sort": [
-        "飲料",
-        "全部"
-      ]
-    },
-    {
-      "id": 14,
-      "itemName": "我要吃炸雞2",
-      "itemEName": "Only fried chicken2",
-      "img": "/image/product_8_desktop.jpg",
-      "price": 280,
-      "sort": [
-        "肉慾主義",
-        "全部"
-      ]
-    },
-    {
-      "id": 15,
-      "itemName": "無肉不歡2",
-      "itemEName": "No love without meat2",
-      "img": "/image/product_9_desktop.jpg",
-      "price": 2500,
-      "sort": [
-        "肉慾主義",
-        "全部"
-      ]
-    },
-    {
-      "id": 16,
-      "itemName": "可口可樂2",
-      "itemEName": "Coke2",
-      "img": "/image/product_6_desktop.png",
-      "price": 120,
-      "sort": [
-        "飲料",
-        "全部"
-      ]
-    },
-    {
-      "id": 17,
-      "itemName": "雪碧3",
-      "itemEName": "soda3",
-      "img": "/image/product_7_desktop.jpg",
-      "price": 120,
-      "sort": [
-        "飲料",
-        "全部"
-      ]
-    },
-    {
-      "id": 18,
-      "itemName": "可口可樂3",
-      "itemEName": "Coke3",
-      "img": "/image/product_6_desktop.png",
-      "price": 120,
-      "sort": [
-        "飲料",
-        "全部"
-      ]
-    },
-    {
-      "id": 19,
-      "itemName": "雪碧4",
-      "itemEName": "soda4",
-      "img": "/image/product_7_desktop.jpg",
-      "price": 120,
-      "sort": [
-        "飲料",
-        "全部"
-      ]
-    },
-    {
-      "id": 20,
-      "itemName": "雪碧5",
-      "itemEName": "soda5",
-      "img": "/image/product_7_desktop.jpg",
-      "price": 120,
-      "sort": [
-        "飲料",
-        "全部"
-      ]
-    },
-    {
-      "id": 21,
-      "itemName": "可口可樂4",
-      "itemEName": "Coke4",
-      "img": "/image/product_6_desktop.png",
-      "price": 120,
-      "sort": [
-        "飲料",
-        "全部"
-      ]
-    },
-    {
-      "id": 22,
-      "itemName": "可口可樂5",
-      "itemEName": "Coke5",
-      "img": "/image/product_6_desktop.png",
-      "price": 120,
-      "sort": [
-        "飲料",
-        "全部"
-      ]
-    },
-    {
-      "id": 23,
-      "itemName": "可口可樂6",
-      "itemEName": "Coke6",
-      "img": "/image/product_6_desktop.png",
-      "price": 120,
-      "sort": [
-        "飲料",
         "全部"
       ]
     }

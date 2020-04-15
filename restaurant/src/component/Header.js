@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import {Link} from 'react-router-dom'
-import {FaUtensils,FaComment,FaShoppingCart,FaSignInAlt,FaHamburger,FaLongArrowAltUp} from 'react-icons/fa'
+import {FaUtensils,FaComment,FaShoppingCart,FaSignInAlt,FaHamburger,FaLongArrowAltUp,FaUserCog} from 'react-icons/fa'
 import '../css/Header.scss'
 import CartIcon from './CartIcon'
 import { connect } from 'react-redux'
@@ -8,8 +8,11 @@ import { bindActionCreators } from 'redux'
 import {getMember} from '../action/index'
 
 function Header(props) {
+
+// burger開關
 const [open,setOpen]=useState(false)
-const [userName,setUserName]=useState('會員登入')
+
+// 判斷登入狀態
 const [login,setLogin]=useState(true)
 
 useEffect(() => {
@@ -50,7 +53,7 @@ const isLogout=(
                     <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Contact"><FaComment className="header-icon"/> 聯絡我們</Link></li>
                     <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Product"><FaShoppingCart className="header-icon"/> 線上訂餐</Link></li>
                     {/* {props.memberInfo.length==1?(<li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Member">會員中心</Link></li>):''} */}
-                    <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Member">會員中心</Link></li>
+                    <li onClick={()=>setOpen(!open)}><Link className="header-item" to="/Member"><FaUserCog className="header-icon"/>會員中心</Link></li>
                     
                     {/* 切換DOM */}
                     {login?isLogout:isLogin}

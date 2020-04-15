@@ -6,11 +6,11 @@ import { bindActionCreators } from 'redux'
 import {handle_addCart} from '../action/index'
 
 function CartIcon(props) {
+
+// 購物車品項數量
 const [cartLength,setCartLength]=useState(0)
 
-useEffect(()=>{
-    setCartLength(props.CartAmount)
-},[])
+//設定給hooks
 useEffect(()=>{
 setCartLength(props.CartAmount)
 },[props.CartAmount])

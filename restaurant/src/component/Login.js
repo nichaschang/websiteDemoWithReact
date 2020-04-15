@@ -14,12 +14,13 @@ import {getMemberData} from '../action/index'
 
 function Login(props){
 
+//判斷是否有點選登入按鈕
 const [loginStatus,setLoginStatus]=useState()
+
+//say Hello + 會員名稱使用
 const [userName,setUserName]=useState('')
 
-function check(val){
-    props.getMemberData(val)
-}
+
 
 useEffect(() => {
 
@@ -44,6 +45,7 @@ useEffect(() => {
     
 }, [props.memberInfo])
 
+// formik 驗證使用
 const SigninSchema=Yup.object().shape({
     email:Yup.string()
         .required('*必填')
@@ -54,13 +56,14 @@ const SigninSchema=Yup.object().shape({
         .max(10,'最多十碼')
 })
 
+// 登入DOM
 const loginDOM=(
 <Formik
     initialValues={{ email: '', password: '' }}
     validationSchema={SigninSchema}
     onSubmit={async (values,{setSubmitting}) => {
         setLoginStatus(true)
-        check(values)
+        props.getMemberData(values)
         // alert(JSON.stringify(values))
         setSubmitting(false)
     }}

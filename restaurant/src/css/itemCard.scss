@@ -20,7 +20,7 @@ box-sizing: border-box;
     position: absolute;
     top:5%;
     left: -3%;
-    stroke:$white;
+    stroke:#f50;
     stroke-width:2px;
     width:20%;
     height: 15%;
@@ -28,7 +28,7 @@ box-sizing: border-box;
 }
 
 .active{
-    fill: #fff;
+    fill: #f50;
 }
 .product-txt{
     margin-top:20px;
@@ -66,13 +66,17 @@ box-sizing: border-box;
 .favor-box{
     display: flex;
     flex-wrap: wrap;
-    overflow: scroll;
     max-height: 690px;
     & .item-card{
         width: 30%;
         overflow : hidden;
         text-overflow : ellipsis;
         white-space : nowrap;
+    }
+
+    & img{
+        width: 180px;
+        height: 110px;
     }
 }
 
@@ -87,12 +91,15 @@ box-sizing: border-box;
     }
     
 .favor-box{
-    justify-content: center;
+    justify-content: flex-start;
     & .item-card{
-        width: 40%;
+        width: 48%;
     }
     & .product-txt{
         overflow: hidden;
+    }
+    & .item-img img{
+        max-width: 170px;
     }
 }
 }

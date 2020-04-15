@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux'
 
+
+//購物車
 const cart=(state=[],action)=>{
     switch (action.type){
         case "ADD_CART":
@@ -10,6 +12,7 @@ const cart=(state=[],action)=>{
     }
 }
 
+//購物車icon
 const CartAmount=(state=0,action)=>{
     switch (action.type){
         case "ADD_AMOUNT":
@@ -19,7 +22,7 @@ const CartAmount=(state=0,action)=>{
     }
 }
 
-
+//會員資料
 const memberInfo=(state=[],action)=>{
     switch(action.type){
         case "SHOW_MEMBER":
@@ -29,7 +32,9 @@ const memberInfo=(state=[],action)=>{
     }
 }
 
+//收藏產品項目
 const FavorInfo=(state=[],action)=>{
+    // console.log(state)
     switch(action.type){
         case "ADD_MYFAVOR":
             return action.value
@@ -38,6 +43,8 @@ const FavorInfo=(state=[],action)=>{
     }
 }
 
+
+//產品資料
 const productInfo=(state=[],action)=>{
     switch(action.type){
         case "SHOW_Product":
@@ -46,6 +53,8 @@ const productInfo=(state=[],action)=>{
             return state
     }
 }
+
+
 
 const rootReducer = combineReducers({
     cart,CartAmount,memberInfo,productInfo,FavorInfo

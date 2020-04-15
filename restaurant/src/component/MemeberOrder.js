@@ -13,14 +13,16 @@ import Paper from '@material-ui/core/Paper'
 
 function MemeberOrder(props){
 
-//訂單編號
+//訂單編號 顯示有哪些訂單
 const [orderNum,setOrderNum]=useState([])
+
 //獲取要顯示的訂單內容物
 const [myOrder,setMyOrder]=useState('')
+
 // 獲取選取的訂單內容
 const [orderItem,setOrderItem]=useState([])
 
-
+    //獲取會員訂單
     useEffect(() => {
         if(props.cusInfo.length!==0){
             props.cusInfo.map((v,i)=>{
@@ -31,9 +33,7 @@ const [orderItem,setOrderItem]=useState([])
         
     }, [])
 
-    const boxDOM=[]
-    const orderBoxDOM=[]
-
+    // 顯示選擇的訂單內容
     useEffect(()=>{
         orderNum.map((v,i)=>{
             if(myOrder==v.id){
@@ -49,6 +49,8 @@ const [orderItem,setOrderItem]=useState([])
     },[orderItem,orderNum])
 
 
+    //訂單DOM
+    const boxDOM=[]
     if(orderNum!==[]){
         orderNum.map((v,i)=>{
             console.log(v)

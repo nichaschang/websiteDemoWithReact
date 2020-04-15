@@ -6,22 +6,18 @@ import MemberAside from '../component/MemberAside'
 import MemberInfo from '../component/MemberInfo'
 import MemeberOrder from '../component/MemeberOrder'
 import FavorItem from '../component/FavorItem'
-import {FaUserAlt,FaClipboardList,FaHeart,FaList} from 'react-icons/fa'
-import {IoIosArrowForward} from 'react-icons/io'
 import {GoPrimitiveDot,GoTools} from 'react-icons/go'
 import Typography from '@material-ui/core/Typography'
 import Breadcrumbs from '@material-ui/core/Breadcrumbs'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import {getMember,updateMemberData,favorProdcut} from '../action/index'
-import Product from './Product'
+import {updateMemberData} from '../action/index'
 
 function Member(props){
 console.log(props)
 
+//預設值會員類別
 const [memberSort,setMemberSort]=useState('個人資料')
-
-
 
 
     return (
@@ -71,15 +67,14 @@ const [memberSort,setMemberSort]=useState('個人資料')
 
 const mapStateToProps = store => {
     return {
-        memberInfo:store.memberInfo,
-        FavorInfo:store.FavorInfo
+        memberInfo:store.memberInfo
     }
     }
     
 const mapDispatchToProps = dispatch => {
 return bindActionCreators(
     {
-        getMember,updateMemberData,favorProdcut,
+        updateMemberData
     },
     dispatch
 )

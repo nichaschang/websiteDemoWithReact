@@ -9,7 +9,7 @@ function ProductAside(props) {
 const [sortBox,setSortBox]=useState([])
 useEffect(()=>{
 props.getProductData()
-console.log(props)
+// console.log(props)
 },[])
 useEffect(() => {
     let box=[]

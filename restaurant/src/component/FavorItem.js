@@ -13,9 +13,11 @@ function FavorItem(props) {
 const [myFavor,setMyFavor]=useState(true)
 
 
-useEffect(()=>{
-    console.log(props)
-},[])
+// useEffect(()=>{
+//     console.log(props)
+// },[])
+
+// 顯示收藏DOM
 const favorDOM=[]
 props.FavorInfo.map((v,i)=>{
     favorDOM.push(

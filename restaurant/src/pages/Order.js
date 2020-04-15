@@ -8,23 +8,22 @@ import { bindActionCreators } from 'redux'
 import {handle_addCart,getMemberData} from '../action/index'
 
 function Order(props) {
+
+//折扣預設值
 const [discount,setDiscount]=useState(0)
+
+//運費預設值
 const [ship,setShip]=useState(100)
+
+//總額預設值
 const [total,setTotal]=useState(0)
 
-useEffect(()=>{
-    let total=0
-    props.Cart.map((v,i)=>{
-        let sprice=v.price*v.count
-        total+=+sprice
-    })
-    setTotal(total)
-},[])
-
+//送出訂單
 function sendOrder(){
     console.log(132)
 }
 
+//計算總額
 useEffect(()=>{
     let total=0
     props.Cart.map((v,i)=>{
@@ -32,9 +31,9 @@ useEffect(()=>{
         total+=+sprice
     })
     setTotal(total)
-    // console.log(props.memberInfo)
-    // console.log(props.productInfo)
 },[props.Cart])
+
+
     return (
         <>
             <div className="order-box">
@@ -51,6 +50,7 @@ useEffect(()=>{
                         </tr>
                     </thead>
                     <tbody>
+                    {/* 購物車品項 */}
                     {props.Cart.map((v,i)=>{
                         return (
                             <tr className="list-item">

@@ -2,11 +2,13 @@ import React, {useState,useEffect}from 'react'
 import {Link,withRouter} from 'react-router-dom'
 import "../css/Contact.scss"
 import 'date-fns';
-import { Button ,Menu ,MenuItem,Grid } from '@material-ui/core'
+import { Button ,Menu ,MenuItem } from '@material-ui/core'
 import { TextField } from 'formik-material-ui'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 
+
+// form驗證
 const AdviceSchema = Yup.object().shape({
     userName:Yup.string()
     .required('姓名為必填欄位'),
@@ -20,20 +22,23 @@ const AdviceSchema = Yup.object().shape({
 
 
 function Contact(props){
-const [color,setColor]=useState('')
+
+//意見分類data
 const [cusExp,setCusExp]=useState('')
+
+//開啟意見類別menu
 const [anchorEl, setAnchorEl] = useState(null);
 
-useEffect(()=>{
-console.log(props)
-},[])
 
 
+
+//   menu開啟使用 Material-UI元件 
   const handleClick = (event) => {
+      console.log(event.currentTarget)
     setAnchorEl(event.currentTarget);
   };
 
-//   設定意見類別
+//   menu關閉使用 Material-UI元件
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -42,16 +47,17 @@ console.log(props)
     return (
         <>
         <Formik
-initialValues={{userName:'',phone:'',email:'',comesDate:''}}
-validationSchema={AdviceSchema}
-onSubmit={(values,{setSubmitting,resetForm})=>{
-    setTimeout(()=>{
-        alert('您的建議已經送出囉')
-        resetForm({})
-        setSubmitting(true)
-    },500)
-}}
->
+            initialValues={{userName:'',phone:'',email:'',comesDate:''}}
+            validationSchema={AdviceSchema}
+            onSubmit={(values,{setSubmitting,resetForm})=>{
+                setTimeout(()=>{
+                    alert('您的建議已經送出囉')
+                    //清除表單內容
+                    resetForm({})
+                    setSubmitting(true)
+                },500)
+            }}
+        >
             {({isValid})=>(
                 <div className="contact-box">
                 <div className="contact-banner-box">
