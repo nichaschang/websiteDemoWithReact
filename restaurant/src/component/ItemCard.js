@@ -38,6 +38,25 @@ useEffect(()=>{
 },[recheckFavor])
 
 
+function sendFavorMsg(val){
+  if(val){
+    alert('已加入收藏')
+  }else{
+    alert('取消收藏')
+  }
+}
+
+//折扣 等待規劃
+function checkDiscountPrice(val){
+  let price
+  if(val){
+    price=Math.round(props.data.price*.95)
+  }else{
+    price=Math.round(props.data.price)
+  }
+  return price
+}
+
     return (
         <>
             <div className="item-card" key={props.data.itemName}>
@@ -45,6 +64,7 @@ useEffect(()=>{
                     <FiHeart className={`favor-icon ${myFavor?'active':''}`}  onClick={()=>{
                       setMyFavor(!myFavor)
                       props.favorProdcut(!myFavor,props.data,props.FavorInfo)
+                      sendFavorMsg(!myFavor)
                     }
                     } />
                     <img src={props.data.img} />

@@ -90,6 +90,8 @@ export const updateMemberData=(val)=>{
 
 export const getMember=value=>({type:"SHOW_MEMBER",value:value})
 
+export const getDicount=val=>({type:"SHOW_DISCOUNT",value:val})
+
 //獲取產品資料
 export const getProductData=(val)=>{
     return async dispatch=>{

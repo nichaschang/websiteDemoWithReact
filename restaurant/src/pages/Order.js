@@ -20,8 +20,13 @@ const [total,setTotal]=useState(0)
 
 //送出訂單
 function sendOrder(){
-    props.sendNewOrder([])
-    props.updateMemberData(handle_NewOrder(props.Cart,props.memberInfo))
+    if(props.Cart.length>0){
+        props.sendNewOrder([])
+        props.updateMemberData(handle_NewOrder(props.Cart,props.memberInfo))
+        alert('已送出訂單')
+    }else{
+        alert('購物車沒有商品')
+    }
     
 }
 
@@ -35,6 +40,21 @@ useEffect(()=>{
     setTotal(total)
 },[props.Cart])
 
+//折扣用
+function handleDisCount(val,price){
+    console.log('val',val) //itemID
+    console.log('price',price) //price
+    console.log('props.discountItem',props.discountItem)
+    let idx=props.discountItem.findIndex(e=>e==val)
+    
+    console.log('idx',idx)
+    if(idx!==-1){
+
+        return price*.95
+    }else{
+        return price
+    }
+}
 
     return (
         <>
@@ -102,6 +122,7 @@ const mapStateToProps = store => {
       Cart: store.cart,
       memberInfo:store.memberInfo,
       productInfo:store.productInfo,
+      discountItem:store.discountItem,
     }
   }
   

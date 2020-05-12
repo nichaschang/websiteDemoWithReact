@@ -43,6 +43,16 @@ const FavorInfo=(state=[],action)=>{
     }
 }
 
+//儲存折扣項目
+const discountItem=(state=[],action)=>{
+
+    switch(action.type){
+        case "SHOW_DISCOUNT":
+            return action.value
+        default:
+            return state
+    }
+}
 
 //產品資料
 const productInfo=(state=[],action)=>{
@@ -57,7 +67,7 @@ const productInfo=(state=[],action)=>{
 
 
 const rootReducer = combineReducers({
-    cart,CartAmount,memberInfo,productInfo,FavorInfo
+    cart,CartAmount,memberInfo,productInfo,FavorInfo,discountItem
 })
 
 

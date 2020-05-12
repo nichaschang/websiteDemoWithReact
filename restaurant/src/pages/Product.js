@@ -65,7 +65,10 @@ const [maxItemIndex,setMaxItemIndex]=useState(0)
 
     // 獲取產品
     useEffect(() => {
-        props.getProductData()
+        if(props.productInfo.length==0){
+            console.log('呼叫產品')
+            props.getProductData()
+        }
     }, [])
 
     // 設定當前頁數的產品index 最大值/最小值

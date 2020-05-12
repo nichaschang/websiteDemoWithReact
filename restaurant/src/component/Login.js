@@ -8,7 +8,8 @@ import {FaLock} from  'react-icons/fa'
 import * as Yup from 'yup'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import {getMemberData} from '../action/index'
+import {getMemberData,getProductData,getDicount} from '../action/index'
+import ItemCard from '../component/ItemCard'
 
 
 
@@ -20,7 +21,34 @@ const [loginStatus,setLoginStatus]=useState()
 //say Hello + 會員名稱使用
 const [userName,setUserName]=useState('')
 
+const [getRadomItem,setGetRadomItems]=useState([])
+useEffect(()=>{
+if(props.productInfo.length==0){
+        props.getProductData() 
+}
+},[])
+function getRandomInt(max) {
+    let box=[]
 
+    for(let i=0;i<5;i++){
+        let num=Math.floor(Math.random() * Math.floor(max))
+        box.push(num)
+    }
+
+    setGetRadomItems(box)
+    
+  }
+useEffect(()=>{
+    console.log('userName',userName)
+    getRandomInt(props.productInfo.length)
+},[userName])
+
+useEffect(()=>{
+console.log('getRadomItem',getRadomItem)
+if(getRadomItem.length>0){
+    props.getDicount(getRadomItem)
+}
+},[getRadomItem])
 
 useEffect(() => {
 
@@ -105,10 +133,22 @@ const loginDOM=(
   </Formik>
 )
 const helloDOM=(
-    <div className="login-box">
+    <div className="login-box login-boxOK">
         <p>
         {userName!==''?`Hello!${userName}`:''}
         </p>
+        <p>推薦商品</p>
+        <div className='flex'>
+        {props.productInfo.map((v,i)=>{
+                let idx=getRadomItem.findIndex(e=>e==v.id)
+            if(idx!=-1){
+                return (
+                <ItemCard data={v} discount={v.id}/>
+            )
+            }
+            }
+        )}
+        </div>
     </div>
 )
 
@@ -123,13 +163,14 @@ const helloDOM=(
 const mapStateToProps = store => {
 return {
     memberInfo:store.memberInfo,
+    productInfo:store.productInfo,
 }
 }
 
 const mapDispatchToProps = dispatch => {
 return bindActionCreators(
     {
-    getMemberData
+    getMemberData,getProductData,getDicount
     },
     dispatch
 )

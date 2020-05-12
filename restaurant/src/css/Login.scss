@@ -1,12 +1,31 @@
 @import "./variables.scss";
-
+.flex{
+    width:90%;
+    display: flex;
+    flex-wrap: wrap;
+    margin:0 auto ;
+    & div{
+        font-size: 1.25rem;
+        box-sizing: border-box;
+    }
+    & .item-card{
+        width:30%
+    }
+    
+    & .item-img img{
+        width: 100%;
+    }
+}
 .login-box{
     background:#EFE9E7 ;
     padding: 15px 30px;
-    height:580px;
+    min-height:580px;
     width:100%;
     box-sizing: border-box;
     text-align: center;
+}
+.login-boxOK{
+    font-size: 30px;
 }
 .login-title{
     margin:0 auto;
