@@ -11,15 +11,18 @@ import Typography from '@material-ui/core/Typography'
 import Breadcrumbs from '@material-ui/core/Breadcrumbs'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import {updateMemberData} from '../action/index'
+import {updateMemberData,getProductData} from '../action/index'
 
 function Member(props){
-console.log(props)
 
 //預設值會員類別
 const [memberSort,setMemberSort]=useState('個人資料')
 
-
+useEffect(()=>{
+if(props.productInfo==0){
+    props.getProductData()
+}
+},[])
     return (
         <>
             <div className="basic-box">
@@ -41,7 +44,7 @@ const [memberSort,setMemberSort]=useState('個人資料')
                         updateMemberInfo={(e)=>props.updateMemberData(e)}
                     />):''}
                     {/* 會員訂單 */}
-                    {memberSort=='訂單紀錄'?(<MemeberOrder cusInfo={props.memberInfo}/>):''}
+                    {memberSort=='訂單紀錄'?(<MemeberOrder cusInfo={props.memberInfo} productInfo={props.productInfo}/>):''}
                     {/* 收藏餐點 */}
                     {memberSort=='收藏餐點'?(
                         <FavorItem cusInfo={props.memberInfo}/>):''}
@@ -67,14 +70,15 @@ const [memberSort,setMemberSort]=useState('個人資料')
 
 const mapStateToProps = store => {
     return {
-        memberInfo:store.memberInfo
+        memberInfo:store.memberInfo,
+        productInfo:store.productInfo
     }
     }
     
 const mapDispatchToProps = dispatch => {
 return bindActionCreators(
     {
-        updateMemberData
+        updateMemberData,getProductData
     },
     dispatch
 )

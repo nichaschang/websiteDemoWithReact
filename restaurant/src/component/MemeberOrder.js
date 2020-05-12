@@ -9,6 +9,7 @@ import TableContainer from '@material-ui/core/TableContainer'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
+import {chageOrderName} from '../util/HandleOrder'
 
 
 function MemeberOrder(props){
@@ -43,17 +44,17 @@ const [orderItem,setOrderItem]=useState([])
     },[myOrder])
 
 
-    useEffect(()=>{
+    /*useEffect(()=>{
         console.log('orderItem',orderItem)
         console.log('orderNum',orderNum)
-    },[orderItem,orderNum])
+    },[orderItem,orderNum])*/
 
 
     //訂單DOM
     const boxDOM=[]
     if(orderNum!==[]){
         orderNum.map((v,i)=>{
-            console.log(v)
+            
             boxDOM.push(
                 <>
                     <h3 onClick={()=>setMyOrder(v.id)}>訂單編號：{v.id}
@@ -74,7 +75,7 @@ const [orderItem,setOrderItem]=useState([])
                                 {orderItem.map((v,i) => (
                                 <TableRow>
                                     <TableCell component="th" scope="row">
-                                    {v.id}
+                                    {chageOrderName(v.id,props.productInfo)}
                                     </TableCell>
                                     <TableCell>{v.price}</TableCell>
                                     <TableCell>{v.amount}</TableCell>

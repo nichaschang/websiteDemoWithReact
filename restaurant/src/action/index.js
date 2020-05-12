@@ -1,6 +1,10 @@
 
 //加入購物車 action
 export const handle_addCart =(val,data,status)=>{
+//val 是產品ID
+//data 是購物車所有產品
+//state 是boolean 判斷是加入購物車還是取消產品
+
     return dispatch =>{
         let idBox=[]
         data.map((val,ind)=>{
@@ -15,7 +19,7 @@ export const handle_addCart =(val,data,status)=>{
                 data[findIndex].count =+data[findIndex].count+1
             }
         }else{
-            let newData=data.filter(e=>e!==data[[findIndex]])
+            let newData=data.filter(e=>e!==data[findIndex])
             data=newData
         }
         
@@ -25,6 +29,22 @@ export const handle_addCart =(val,data,status)=>{
 }
 
 export const AddCart=value=>({type:"ADD_CART",value:value})
+
+//暫時模擬使用
+export const sendNewOrder=(data)=>{
+    return AddCart(data)
+}
+
+//新增訂單等待製作
+/*export const sendNewOrder=(val)=>{
+    return async dispatch=>{
+        const request=new Request((`http://localhost:3000/member/${val}`,{
+            method:'GET',
+        }))
+        const res= await fetch(request)
+        const data=await res.json()
+    }
+}*/
 
 //購物車icon 品項數量
 export const getAmount=value=>({type:"ADD_AMOUNT",value:value})
@@ -36,14 +56,12 @@ export const getMemberData=(val)=>{
             method:'GET',
         })
         const res=await fetch(request)
-        .catch((err)=>{
-            console.log(err)
-        })
         const data=await res.json()
         await console.log('data',data)
         dispatch(getMember(data))
     }   
 }
+
 
 
 //更新會員資料

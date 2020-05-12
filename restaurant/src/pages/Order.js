@@ -5,8 +5,8 @@ import {IoIosArrowForward} from  'react-icons/io'
 import '../css/order.scss'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import {handle_addCart,getMemberData} from '../action/index'
-
+import {handle_addCart,getMemberData,sendNewOrder,updateMemberData} from '../action/index'
+import {handle_NewOrder} from '../util/HandleOrder'
 function Order(props) {
 
 //折扣預設值
@@ -20,7 +20,9 @@ const [total,setTotal]=useState(0)
 
 //送出訂單
 function sendOrder(){
-    console.log(132)
+    props.sendNewOrder([])
+    props.updateMemberData(handle_NewOrder(props.Cart,props.memberInfo))
+    
 }
 
 //計算總額
@@ -107,7 +109,7 @@ const mapStateToProps = store => {
     return bindActionCreators(
       {
         handle_addCart,
-        getMemberData,
+        getMemberData,sendNewOrder,updateMemberData
       },
       dispatch
     )

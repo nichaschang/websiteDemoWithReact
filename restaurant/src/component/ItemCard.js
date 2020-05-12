@@ -34,7 +34,7 @@ useEffect(()=>{
   }else{
     setMyFavor(false)
   }
-  console.log(recheckFavor)
+  //console.log(recheckFavor)
 },[recheckFavor])
 
 
@@ -54,8 +54,11 @@ useEffect(()=>{
                     <h5>{props.data.itemEName}</h5>
                     <hr />
                     <h2>${props.data.price}</h2>
-                    <div><button className="btn" onClick={()=>
+                    <div><button className="btn" onClick={()=>{
                     props.handle_addCart(props.data,props.Cart,true)
+                    alert('已加入購物車')
+                    }
+                    
                     }><FaShoppingCart className="btn-icon"/>加入購物車</button></div>
                 </div>
                 
